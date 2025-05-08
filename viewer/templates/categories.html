@@ -1,0 +1,21 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam kategorií
+{% endblock %}
+
+
+{% block content %}
+    <h1>Kategorie</h1>
+    <ul>
+        {% for category in categories %}
+            <li> {{ category }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+

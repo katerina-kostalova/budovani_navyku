@@ -1,6 +1,6 @@
-from msilib.schema import ListView
+from django.views.generic import ListView
 from django.shortcuts import render
-from viewer.models import Habit
+from viewer.models import Habit, Category
 
 
 
@@ -9,10 +9,13 @@ def home(request):
     return render(request, 'home.html')
 
 
-class HabitsListView(ListView):# dělám to objektově -  chci seznam = listview
-    template_name = 'habits.html'# do jaké temlaty posílám
-    model = Habit#z jaké tabulky to vytahuju
-    #pozor do tamplate se posilaji data pod nazvem 'object_list', mužu nechat pouze "template_name a model a vpravit přímotepllate {% for habit in 'object_list'%}
-    # nebo přidat řádek context_object_name a definovat to zde
+class HabitsListView(ListView):
+    template_name = 'habits.html'
+    model = Habit
     context_object_name = 'habits'
 
+
+class CategoryListView(ListView):
+    template_name = 'categories.html'
+    model = Category
+    context_object_name = 'categories'
