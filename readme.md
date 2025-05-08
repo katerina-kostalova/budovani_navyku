@@ -40,5 +40,52 @@
 3. překážky
 4. odměny
 
+# Obrázek databáze
+![ER diagram](./files/ER_v1.png)
 
+# Databáze
+- [x] Category
+  - [x] name
+
+- [x] Obstacle
+  - [x] name (string)
+  - [x] description (string)
+  - [x] solution (string)
+  - [x] created_at (date)
+
+- [x] Reward
+  - [x] name (string)
+  - [x] description (string)
+  - [x] created_at (date)
+
+- [x] Habit 
+  - [x] categories (string)
+  - [x] name (string)
+  - [x] obstacles (string)
+  - [x] rewards (string)
+  - [x] goal (string)
+  - [x] frequency (string)
+  - [x] target_repetitions (integer)
+  - [x] start_date (date)
+  - [x] status (string)
+  - [x] created_at (date)
+  - [x] updated_at (date)
+  - [x] description (string)
+  
+- [x] Review
+  - [x] habit (string)
+  - [x] reviewer (string)
+  - [x] rating (integer)
+  - [x] comment (string)
+  - [x] created (date)
+  - [x] updated (date)
+  
+- [x] Image
+  - [x] image
+  - [x] habit (string)
+  - [x] description (string)
+
+
+
+  
 
