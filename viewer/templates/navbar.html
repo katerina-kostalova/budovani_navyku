@@ -19,6 +19,20 @@
                 <a class="nav-item nav-link active" href="{% url 'obstacles' %}">Překážky</a>
                 <a class="nav-item nav-link active" href="{% url 'rewards' %}">Odměny</a>
             </div>
+
+
+
+            <div class="navbar-nav ml-auto">
+                <div class="search-div">
+                    <form method="post" action="/search/">
+                        {% csrf_token %}
+                        <input type="text" id="search" name="search" placeholder="🔎Hledej...">
+                    </form>
+                </div>
+            </div>
+
+
+
         </div>
     </div>{% comment %} 1definovaný konteiner {% endcomment %}
 </nav>{% comment %} navigační část  navigačné MENU  {% endcomment %}

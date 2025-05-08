@@ -149,3 +149,29 @@ class RewardDeleteView(DeleteView):
     template_name = 'confirm_delete.html'
     model = Reward
     success_url = reverse_lazy('rewards')
+
+
+def search(request):
+    if request.method == 'POST':
+        search_string = request.POST.get('search')
+        if search_string:
+            habit_name = Habit.objects.filter(name__icontains=search_string)
+            habit_description = Habit.objects.filter(description__icontains=search_string)
+            category_name = Category.objects.filter(name__icontains=search_string)
+            obstacle_name = Obstacle.objects.filter(name__icontains=search_string)
+            obstacle_description = Obstacle.objects.filter(description__icontains=search_string)
+            reward_name = Reward.objects.filter(name__icontains=search_string)
+            reward_description = Reward.objects.filter(description__icontains=search_string)
+
+
+            context = { 'search' : search_string,
+                        'habit_name' : habit_name,
+                        'habit_description' : habit_description,
+                        'category_name' : category_name,
+                        'obstacle_name' : obstacle_name,
+                        'obstacle_description' : obstacle_description,
+                        'reward_name' : reward_name,
+                        'reward_description' : reward_description,}
+
+        return render(request, 'search.html', context)
+    return render(request, 'home.html')

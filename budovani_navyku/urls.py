@@ -28,4 +28,6 @@ urlpatterns = [
     path('reward/update/<int:pk>/', RewardUpdateView.as_view(), name='reward_update'),
     path('reward/delete/<int:pk>/', RewardDeleteView.as_view(), name='reward_delete'),
 
+    path('search/', search, name='search'),
+
 ]

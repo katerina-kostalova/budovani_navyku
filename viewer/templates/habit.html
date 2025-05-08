@@ -46,8 +46,8 @@
         </div>
         <p><strong>Popis:</strong></p>
         <p class="text-justify">{{ habit.description }}</p>
-        <p class="mt-3"><small class="text-muted>">Přidáno dne: {{ habit.created_at }}</small></p>
-        <p><small class="text-muted>">Poslední úprava dne: {{ habit.updated_at }}</small></p>
+        <p class="mt-3"><small class="text-muted>">Přidáno dne: {{ habit.created_at|date:"j. n. Y G:i"}}</small></p>
+        <p><small class="text-muted>">Poslední úprava dne: {{ habit.updated_at|date:"j. n. Y G:i" }}</small></p>
     </div>
     <hr>
     <a href="{% url 'habit_update' habit.id %}" class="btn btn-primary">Aktualizovat</a>

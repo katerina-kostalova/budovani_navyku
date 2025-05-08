@@ -8,7 +8,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p }} {% comment %}formulář jako odstavce{% endcomment %}
         <input type ="submit" id="id_submit" value="Uložit" class = "btn btn-primary">
     </form>
 {% endblock %}

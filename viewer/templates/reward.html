@@ -12,5 +12,11 @@
 {% block content %}
     <h1 class="display-4">{{ reward.name }}</h1>
     <hr class="my-4">
+    <p><strong>Popis:</strong></p>
     <p class="text-justify">{{ reward.description }}</p>
+    <p class="mt-3"><small class="text-muted>">Přidáno dne: {{ reward.created_at|date:"j. n. Y G:i"}}</small></p>
+    <p><small class="text-muted>">Poslední úprava dne: {{ reward.updated_at|date:"j. n. Y G:i" }}</small></p>
+    <hr>
+    <a href="{% url 'reward_update' reward.id %}" class="btn btn-primary">Aktualizovat</a>
+    <a href="{% url 'reward_delete' reward.id %}" class="btn btn-danger">Smazat</a>
 {% endblock %}
