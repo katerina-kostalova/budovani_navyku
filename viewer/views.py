@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
 
 from viewer.forms import HabitModelForm
@@ -36,6 +36,11 @@ class HabitUpdateView(UpdateView):
     def form_invalid(self, form):
         print("Formulář není validní.")
         return super().form_invalid(form)
+
+class HabitDeleteView(DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Habit
+    success_url = reverse_lazy('habits')
 
 
 
