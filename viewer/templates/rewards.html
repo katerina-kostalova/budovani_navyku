@@ -1,0 +1,19 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam odměn
+{% endblock %}
+
+
+{% block content %}
+    <h1>Odměny</h1>
+    <ul>
+        {% for reward in rewards %}
+            <li>{{ reward }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
