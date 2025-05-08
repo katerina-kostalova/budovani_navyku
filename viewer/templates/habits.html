@@ -13,6 +13,7 @@ akorát do "block content " na base html ,, vloží obsah  habits html vloží{%
 
 {% block content %}
     <h1>Návyky</h1>
+    <a href="{% url 'habit_create' %}" class="btn btn-primary">Přidat</a>{% comment %}tačítko přidat{% endcomment %}
     <ul>
         {% for habit in habits %} {% comment %}vykreslí mi ty dané návyky{% endcomment %}
             <li><a href="{% url 'habit' habit.id %}">{{ habit }}</a></li>{% comment %}potřebuju odkaz, kt bude odkazovat na habit id jine id{% endcomment %}

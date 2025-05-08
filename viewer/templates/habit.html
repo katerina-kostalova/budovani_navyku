@@ -44,10 +44,12 @@
             <p><strong>Začímán dne:</strong>{{ habit.start_date }}</p>
             <p><strong>Status:</strong>{{ habit.status }}</p>
         </div>
-    </div>
         <p class="text-justify">{{ habit.description }}</p>
         <p><small class="text-muted>">Přidáno dne: {{ habit.created_at }}</small></p>
         <p><small class="text-muted>">Poslední úprava dne: {{ habit.updated_at }}</small></p>
+    </div>
+    <hr>
+    <a href="{% url 'habit_update' habit.id %}" class="btn btn-primary">Aktualizovat</a>
 {% endblock %}
 
 
