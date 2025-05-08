@@ -13,7 +13,7 @@
     <h1>Odměny</h1>
     <ul>
         {% for reward in rewards %}
-            <li>{{ reward }}</li>
+            <li><a href="{% url 'reward' reward.id %}">{{ reward }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

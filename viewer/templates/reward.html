@@ -1,0 +1,16 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    {{ habit.reward }}
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="display-4">{{ reward.name }}</h1>
+    <hr class="my-4">
+    <p class="text-justify">{{ reward.description }}</p>
+{% endblock %}

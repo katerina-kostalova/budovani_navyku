@@ -40,3 +40,9 @@ class RewardsListView(ListView):
     template_name = 'rewards.html'
     model = Reward
     context_object_name = 'rewards'
+
+
+class RewardDetailView(DetailView):
+    template_name = 'reward.html'
+    model = Reward
+    context_object_name = 'reward'

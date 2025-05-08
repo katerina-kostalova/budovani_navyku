@@ -16,5 +16,6 @@ urlpatterns = [
     path('obstacles/', ObstaclesListView.as_view(), name='obstacles'),
     path('obstacle/<int:pk>/', ObstacleDetailView.as_view(), name='obstacle'),
     path('rewards/', RewardsListView.as_view(), name='rewards'),
+    path('reward/<int:pk>/', RewardDetailView.as_view(), name='reward'),
 
 ]
