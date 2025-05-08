@@ -13,6 +13,9 @@
     <h1 class="display-4">{{ obstacle.name }}</h1>
     <hr class="my-4">
     <p class="text-justify">{{ obstacle.description }}</p>
+    <hr>
+    <a href="{% url 'obstacle_update' obstacle.id %}" class="btn btn-primary">Aktualizovat</a>
+    <a href="{% url 'obstacle_delete' obstacle.id %}" class="btn btn-danger">Smazat</a>
 {% endblock %}
 
 

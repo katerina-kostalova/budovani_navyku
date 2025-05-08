@@ -11,9 +11,14 @@
 
 {% block content %}
     <h1>Překážky</h1>
+    <a href="{% url 'obstacle_create' %}" class="btn btn-primary">Přidat</a>
     <ul>
         {% for obstacle in obstacles %}
-            <li><a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a></li>
+            <li>
+                <a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a>
+                <a href="{% url 'obstacle_update' obstacle.id %}">🛠️</a>
+                <a href="{% url 'obstacle_delete' obstacle.id %}">🗑️</a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}

@@ -1,8 +1,8 @@
+import re
+
 from django.forms import ModelForm, CharField, TextInput, DateField, NumberInput
 from django.core.exceptions import ValidationError
-from viewer.models import Habit
-
-
+from viewer.models import Habit, Obstacle
 
 
 
@@ -81,3 +81,39 @@ class HabitModelForm(ModelForm):
         sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
         return '. '.join(sentence.capitalize() for sentence in sentences)
 '''
+
+
+class ObstacleModelForm(ModelForm):
+
+    class Meta:
+        model = Obstacle
+        fields = '__all__'
+
+        labels = {
+            'name' : 'Název',
+            'description' : 'Popis',
+            'solution' : 'Řešení'
+        }
+
+        help_texts = {
+            'solution' : 'Dopředu vymysli, jak se jednotlivé překážky překonáš.'
+        }
+
+        name = CharField(max_length=64,
+                         required=True,
+                         widget=TextInput(attrs={'class': 'bg-info'}))
+
+    def __init__(self, *args, **kwargs):#každé položce se přidala třída form control a změní to vzhled
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
+
+    def clean_name(self):
+        initial = self.cleaned_data['name']
+        return initial.capitalize()
+
+    def clean_description(self):                                #12.3. 01:47:00
+        initial = self.cleaned_data['description']  # Každá věta bude začínat velkým písmenem
+        sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
+        return '. '.join(sentence.capitalize() for sentence in sentences)
+
