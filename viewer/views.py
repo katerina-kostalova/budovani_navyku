@@ -30,3 +30,8 @@ class ObstaclesListView(ListView):
     template_name = 'obstacles.html'
     model = Obstacle
     context_object_name = 'obstacles'
+
+class ObstacleDetailView(DetailView):
+    template_name = 'obstacle.html'
+    model = Obstacle
+    context_object_name = 'obstacle'

@@ -13,7 +13,7 @@
     <h1>Překážky</h1>
     <ul>
         {% for obstacle in obstacles %}
-            <li>{% comment %}<a href="{% url 'obstacle' obstacle.id %}">{% endcomment %}{{ obstacle }}{% comment %}</a>{% endcomment %}</li>
+            <li><a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

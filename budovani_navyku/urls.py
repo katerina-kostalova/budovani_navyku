@@ -14,5 +14,6 @@ urlpatterns = [
     path('categories/', CategoriesListView.as_view(), name='categories'),
     path('habit/<int:pk>/', HabitDetailView.as_view(), name='habit'), #potřebuju id konkrétního návyku 8000/habit/id 1/
     path('obstacles/', ObstaclesListView.as_view(), name='obstacles'),
+    path('obstacle/<int:pk>/', ObstacleDetailView.as_view(), name='obstacle'),
 
 ]
