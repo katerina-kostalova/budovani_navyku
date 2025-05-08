@@ -1,7 +1,6 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
-from viewer.models import Habit, Category
-
+from viewer.models import Habit, Category, Obstacle
 
 
 #FUNKCIONALITA
@@ -15,7 +14,19 @@ class HabitsListView(ListView):
     context_object_name = 'habits'
 
 
-class CategoryListView(ListView):
+class HabitDetailView(DetailView):
+    template_name = 'habit.html'
+    model = Habit
+    context_object_name = 'habit'
+
+
+class CategoriesListView(ListView):
     template_name = 'categories.html'
     model = Category
     context_object_name = 'categories'
+
+
+class ObstaclesListView(ListView):
+    template_name = 'obstacles.html'
+    model = Obstacle
+    context_object_name = 'obstacles'

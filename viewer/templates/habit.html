@@ -1,0 +1,53 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    {{ habit.name }}
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="display-4">{{ habit.name }}</h1>
+    <p class="lead">
+            Kategorie:{% comment %}jsou to kolekce{% endcomment %}
+            {% for category in habit.categories.all %}
+                {{ category }}
+            {% empty %}
+                Není dafinovaná žádná kategorie pro tento návyk.
+            {% endfor %}
+    </p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong>Překážka:</strong>
+                {% for obstacle in habit.obstacles.all %}
+                    <span class="badge badge-secondary">{{ obstacle }}</span>
+                {% empty %}
+                    Není dafinovaná žádná překážka pro tento návyk.
+                {% endfor %}
+            </p>
+            <p><strong>Odměna:</strong>
+                {% for reward in habit.rewards.all %}
+                    {{ reward }}
+                {% empty %}
+                    Není dafinovaná žádná odměna pro tento návyk.
+                {% endfor %}
+            </p>
+            <p><strong>Jak často:</strong>{{ habit.frequency }}</p>
+            <p><strong>Cíl:</strong>{{ habit.goal }}</p>
+        </div>
+        <div class="col-md-6">
+            <p><strong>Cíl opakování:</strong>{{ habit.target_repetitions }}</p>
+            <p><strong>Začímán dne:</strong>{{ habit.start_date }}</p>
+            <p><strong>Status:</strong>{{ habit.status }}</p>
+        </div>
+    </div>
+        <p class="text-justify">{{ habit.description }}</p>
+        <p><small class="text-muted>">Přidáno dne: {{ habit.created_at }}</small></p>
+        <p><small class="text-muted>">Poslední úprava dne: {{ habit.updated_at }}</small></p>
+{% endblock %}
+
+

@@ -88,10 +88,10 @@ class Habit(Model):
         ('once_a_month', 'jednou měsíčně')
 
     )
-    category = ManyToManyField(Category, max_length=32, blank=True, related_name='habits')
+    categories = ManyToManyField(Category, max_length=32, blank=True, related_name='habits')
     name = CharField(max_length=32, null=False, blank=False, unique=True)
-    obstacle = ManyToManyField(Obstacle, blank=True, related_name='obstacles')
-    reward = ManyToManyField(Reward, blank=True, related_name='rewards')
+    obstacles = ManyToManyField(Obstacle, blank=True, related_name='obstacles')
+    rewards = ManyToManyField(Reward, blank=True, related_name='rewards')
     goal = TextField(max_length=100, blank =True, null=True)
     frequency = CharField(max_length=50, choices=FREQUENCY_CHOICES, default='once_a_week')
     target_repetitions = IntegerField(default=21)

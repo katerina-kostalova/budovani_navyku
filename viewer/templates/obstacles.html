@@ -1,0 +1,19 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam překážek
+{% endblock %}
+
+
+{% block content %}
+    <h1>Překážky</h1>
+    <ul>
+        {% for obstacle in obstacles %}
+            <li>{% comment %}<a href="{% url 'obstacle' obstacle.id %}">{% endcomment %}{{ obstacle }}{% comment %}</a>{% endcomment %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
