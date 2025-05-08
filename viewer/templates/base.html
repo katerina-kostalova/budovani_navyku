@@ -1,0 +1,47 @@
+
+{% comment %} {% endcomment %}
+
+
+{% load static %}  {% comment %}# netýká se html ale django, načti mi nějakou statickou knihovnu
+- abychom mohli používat staticke soubory: css, javascript,..{% endcomment %}
+
+<html
+        {% if LANGUAGE_CODE %}
+            lang="{{ LANGUAGE_CODE }}" {% comment %}pokud je vyplněný language code, dopln tenhle {% endcomment %}
+        {% else %}
+            lang="cz"
+        {% endif %}
+>
+
+<head>
+    <meta charset="utf-8"> {% comment %}nastavení language code, ted je to v unikodu {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">{% comment %}nastavení toho zobrazení {% endcomment %}
+    <title>{% block title %}{% endblock %}</title>{% comment %} na tohle místo se mi vyplni obsah block title dané stranky{% endcomment %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"{% comment %} odkaz na bootstrap{% endcomment %}
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" {% comment %} načtené scripty{% endcomment %}
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>{% comment %} načtené scripty{% endcomment %}
+</head>
+
+<body>
+
+{% include "navbar.html" %} {% comment %} tady chci vložt obsat navbat.html{% endcomment %}
+
+<div class="container">{% comment %} co se z té stínce bude zobrazovat  CONTEINER{% endcomment %}
+    <div class="jumbotron">{% comment %} =)tybu jumbotron {% endcomment %}
+        {% block content %}{% endblock %} {% comment %} sem vlož to, se bude definované v té dané template  {% endcomment %}
+    </div>
+</div>{% comment %} 1definovaný konteiner {% endcomment %}  {% comment %} co se z té stínce bude zobrazovat {% endcomment %}
+
+{% include "footer.html" %}
+
+</body>
+
+</html>

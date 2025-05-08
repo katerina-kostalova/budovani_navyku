@@ -1,0 +1,21 @@
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> {% comment %} navigační část navigačné MENU {% endcomment %}{% comment %} definované třídy z bootstrapu navigační pole, dark téma {% endcomment %}
+    <div class="container fixed">{% comment %} 1definovaný konteiner {% endcomment %}
+        <a class="navbar-brand" href="/">HollyMovies</a>{% comment %} odkaz, na kt kdž kliknu se dostanu do home {% endcomment %}
+        <button{% comment %} zabalovací tlačítko {% endcomment %}
+                class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        >
+            <span class="navbar-toggler-icon"></span>{% comment %} ikona {% endcomment %}
+        </button>{% comment %} zabalovací tlačítko {% endcomment %}
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>{% comment %} home odkaz {% endcomment %}
+                <a class="nav-item nav-link active" href="{% url 'habits' %}">Návyky</a>
+            </div>
+        </div>
+    </div>{% comment %} 1definovaný konteiner {% endcomment %}
+</nav>{% comment %} navigační část  navigačné MENU  {% endcomment %}

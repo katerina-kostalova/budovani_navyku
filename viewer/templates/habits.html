@@ -1,0 +1,19 @@
+{% extends "base.html" %}   {% comment %} view mi pošle data do tempaty habis html a habits html mi pošle data do base.html
+akorát do "block content " na base html ,, vloží obsah  habits html vloží{% endcomment %}
+
+{% comment %}{% endcomment %}
+{% block title %}
+    Seznam návyků
+{% endblock %}
+
+
+{% block content %}
+    <h1>Návyky</h1>
+    <ul>
+        {% for habit in habits %} {% comment %}vykreslí mi ty dané návyky{% endcomment %}
+            <li> {{ habit }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
