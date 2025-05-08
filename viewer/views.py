@@ -61,6 +61,11 @@ class CategoriesListView(ListView):
     model = Category
     context_object_name = 'categories'
 
+class CategoryDetailView(DetailView):
+    template_name = 'category.html'
+    model = Category
+    context_object_name = 'category'
+
 
 
 
