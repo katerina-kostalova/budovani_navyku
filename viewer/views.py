@@ -2,13 +2,21 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
 
-from viewer.forms import HabitModelForm, ObstacleModelForm
+from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm
 from viewer.models import Habit, Category, Obstacle, Reward
+
+
+
+
 
 
 #FUNKCIONALITA
 def home(request):
     return render(request, 'home.html')
+
+
+
+
 
 
 class HabitsListView(ListView):
@@ -52,9 +60,6 @@ class CategoriesListView(ListView):
     template_name = 'categories.html'
     model = Category
     context_object_name = 'categories'
-
-
-
 
 
 
@@ -117,3 +122,25 @@ class RewardDetailView(DetailView):
     template_name = 'reward.html'
     model = Reward
     context_object_name = 'reward'
+
+
+class RewardCreateView(CreateView):
+    template_name = 'form.html'
+    form_class = RewardModelForm
+    success_url = reverse_lazy('rewards')
+
+    def form_invalid(self, form):
+        print("Formulář 'RewardModelForm' není validní.")
+        return super().form_invalid(form)
+
+class RewardUpdateView(UpdateView):
+    template_name = 'form.html'
+    form_class = RewardModelForm
+    model = Reward
+    success_url = reverse_lazy('rewards')
+
+
+class RewardDeleteView(DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Reward
+    success_url = reverse_lazy('rewards')

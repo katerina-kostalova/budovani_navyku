@@ -23,5 +23,8 @@ urlpatterns = [
     path('obstacle/delete/<int:pk>/', ObstacleDeleteView.as_view(), name='obstacle_delete'),
     path('rewards/', RewardsListView.as_view(), name='rewards'),
     path('reward/<int:pk>/', RewardDetailView.as_view(), name='reward'),
+    path('reward/create/', RewardCreateView.as_view(), name='reward_create'),
+    path('reward/update/<int:pk>/', RewardUpdateView.as_view(), name='reward_update'),
+    path('reward/delete/<int:pk>/', RewardDeleteView.as_view(), name='reward_delete'),
 
 ]

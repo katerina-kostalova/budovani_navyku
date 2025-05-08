@@ -2,7 +2,7 @@ import re
 
 from django.forms import ModelForm, CharField, TextInput, DateField, NumberInput
 from django.core.exceptions import ValidationError
-from viewer.models import Habit, Obstacle
+from viewer.models import Habit, Obstacle, Reward
 
 
 
@@ -68,6 +68,13 @@ class HabitModelForm(ModelForm):
             if target_repetitions > 90:
                 raise ValidationError("Cílový počet opakování nesmí být větší než 90, aby to nebylo příliš frustrující.")
         return target_repetitions
+
+    def clean_description(self):                                #12.3. 01:47:00
+        initial = self.cleaned_data['description']  # Každá věta bude začínat velkým písmenem
+        sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
+        return '. '.join(sentence.capitalize() for sentence in sentences)
+
+
 '''
     def clean_start_date(self):
         initial = self.cleaned_data['start_date']
@@ -75,11 +82,6 @@ class HabitModelForm(ModelForm):
             raise ValidationError("Datum začátku nesmí být starší než dnes.")
         return initial
 
-    def clean_description(self):
-        # Každá věta bude začínat velkým písmenem
-        initial = self.cleaned_data['description']
-        sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
-        return '. '.join(sentence.capitalize() for sentence in sentences)
 '''
 
 
@@ -98,6 +100,41 @@ class ObstacleModelForm(ModelForm):
         help_texts = {
             'solution' : 'Dopředu vymysli, jak se jednotlivé překážky překonáš.'
         }
+
+        name = CharField(max_length=64,
+                         required=True,
+                         widget=TextInput(attrs={'class': 'bg-info'}))
+
+    def __init__(self, *args, **kwargs):#každé položce se přidala třída form control a změní to vzhled
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
+
+    def clean_name(self):
+        initial = self.cleaned_data['name']
+        return initial.capitalize()
+
+    def clean_description(self):                                #12.3. 01:47:00
+        initial = self.cleaned_data['description']  # Každá věta bude začínat velkým písmenem
+        sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
+        return '. '.join(sentence.capitalize() for sentence in sentences)
+
+
+
+
+
+
+class RewardModelForm(ModelForm):
+
+    class Meta:
+        model = Reward
+        fields = '__all__'
+
+        labels = {
+            'name' : 'Název',
+            'description' : 'Popis',
+        }
+
 
         name = CharField(max_length=64,
                          required=True,

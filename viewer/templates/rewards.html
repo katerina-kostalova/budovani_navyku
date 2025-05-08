@@ -11,9 +11,16 @@
 
 {% block content %}
     <h1>Odměny</h1>
+    <a href="{% url 'reward_create' %}" class="btn btn-primary">Přidat</a>
+
     <ul>
         {% for reward in rewards %}
-            <li><a href="{% url 'reward' reward.id %}">{{ reward }}</a></li>
+            <li>
+                <a href="{% url 'reward' reward.id %}">{{ reward }}</a>
+                <a href="{% url 'reward_update' reward.id %}">🛠️</a>
+                <a href="{% url 'reward_delete' reward.id %}">🗑️</a>
+
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
