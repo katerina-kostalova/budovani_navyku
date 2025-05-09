@@ -15,6 +15,7 @@ urlpatterns = [
     path('habit/create/', HabitCreateView.as_view(), name='habit_create'),
     path('habit/update/<int:pk>/', HabitUpdateView.as_view(), name='habit_update'), #musím definovat, které chci updatovat id
     path('habit/delete/<int:pk>/', HabitDeleteView.as_view(), name='habit_delete'),
+    path('habit/filter/', habit_filter, name='habit_filter'),
     path('categories/', CategoriesListView.as_view(), name='categories'),
     path('category/<int:pk>/', CategoryDetailView.as_view(), name='category'),
     path('obstacles/', ObstaclesListView.as_view(), name='obstacles'),

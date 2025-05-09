@@ -175,3 +175,31 @@ def search(request):
 
         return render(request, 'search.html', context)
     return render(request, 'home.html')
+
+
+
+
+
+def habit_filter(request):
+    if request.method == 'POST': #pokud uživatel něco odesal,
+        filter_category = request.POST.get('filter-category').strip()
+        filter_name = request.POST.get('filter-name').strip()
+        filter_obstacle = request.POST.get('filter-obstacle').strip()
+        filter_reward = request.POST.get('filter-reward').strip()
+        filtered_habits = Habit.objects.all()
+        if filter_category:
+            filtered_habits = filtered_habits.filter(categories__name__icontains=filter_category)
+        if filter_name:
+            filtered_habits = filtered_habits.filter(name__icontains=filter_name)
+        if filter_obstacle:
+            filtered_habits = filtered_habits.filter(obstacles__name__icontains=filter_obstacle)
+        if filter_reward:
+            filtered_habits = filtered_habits.filter(rewards__name__icontains=filter_reward)
+
+
+        context = { 'habits' : filtered_habits}
+        return render(request, 'habits.html', context)
+    return render(request, 'home.html') #když nic nepošleme, vrátíme se na home
+
+
+
