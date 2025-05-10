@@ -1,9 +1,10 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
 
 from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm
+from viewer.mixins import StaffRequiredMixin
 from viewer.models import Habit, Category, Obstacle, Reward
 
 
@@ -31,25 +32,28 @@ class HabitDetailView(DetailView):
     model = Habit
     context_object_name = 'habit'
 
-class HabitCreateView(LoginRequiredMixin, CreateView):
+class HabitCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = HabitModelForm
     success_url = reverse_lazy('habits')
+    permission_required = 'viewer.add_habit'
 
-class HabitUpdateView(LoginRequiredMixin, UpdateView):
+class HabitUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = HabitModelForm
     model = Habit
     success_url = reverse_lazy('habits')
+    permission_required = 'viewer.change_habit'
 
     def form_invalid(self, form):
         print("Formulář není validní.")
         return super().form_invalid(form)
 
-class HabitDeleteView(LoginRequiredMixin, DeleteView):
+class HabitDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Habit
     success_url = reverse_lazy('habits')
+    permission_required = 'viewer.delete_habit'
 
 
 
@@ -85,10 +89,11 @@ class ObstacleDetailView(DetailView):
     context_object_name = 'obstacle'
 
 
-class ObstacleCreateView(LoginRequiredMixin, CreateView):
+class ObstacleCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = ObstacleModelForm
     success_url = reverse_lazy('obstacles')
+    permission_required = 'viewer.add_obstacle'
 
     def form_invalid(self, form):
         print("Formulář 'ObstacleModelForm' není validní.")
@@ -99,15 +104,17 @@ class ObstacleUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ObstacleModelForm
     model = Obstacle
     success_url = reverse_lazy('obstacles')
+    permission_required = 'viewer.change_obstacle'
 
     def form_invalid(self, form):
         print("Formulář 'ObstacleModelForm' není validní.")
         return super().form_invalid(form)
 
-class ObstacleDeleteView(LoginRequiredMixin, DeleteView):
+class ObstacleDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Obstacle
     success_url = reverse_lazy('obstacles')
+    permission_required = 'viewer.delete_obstacle'
 
 
 
@@ -130,7 +137,7 @@ class RewardDetailView(DetailView):
     context_object_name = 'reward'
 
 
-class RewardCreateView(LoginRequiredMixin, CreateView):
+class RewardCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = RewardModelForm
     success_url = reverse_lazy('rewards')
@@ -138,18 +145,24 @@ class RewardCreateView(LoginRequiredMixin, CreateView):
     def form_invalid(self, form):
         print("Formulář 'RewardModelForm' není validní.")
         return super().form_invalid(form)
+        permission_required = 'viewer.add_reward'
 
-class RewardUpdateView(LoginRequiredMixin, UpdateView):
+
+class RewardUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = RewardModelForm
     model = Reward
     success_url = reverse_lazy('rewards')
+    permission_required = 'viewer.change_reward'
 
 
-class RewardDeleteView(LoginRequiredMixin, DeleteView):
+
+class RewardDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Reward
     success_url = reverse_lazy('rewards')
+    permission_required = 'viewer.delete_reward'
+
 
 
 def search(request):

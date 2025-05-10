@@ -41,15 +41,17 @@ akorát do "block content " na base html ,, vloží obsah  habits html vloží{%
         </form>
     </div>
     <h1>Návyky</h1>
-    {% if user.is_authenticated %}
+    {% if perms.viewer.add_habit %}
         <a href="{% url 'habit_create' %}" class="btn btn-primary">Přidat</a>{% comment %}tačítko přidat{% endcomment %}
     {% endif %}
     <ul>
         {% for habit in habits %} {% comment %}vykreslí mi ty dané návyky{% endcomment %}
             <li>
                 <a href="{% url 'habit' habit.id %}">{{ habit }}</a>{% comment %}potřebuju odkaz, kt bude odkazovat na habit id jine id{% endcomment %}
-                {% if user.is_authenticated %}
+                {% if perms.viewer.change_habit %}
                     <a href="{% url 'habit_update' habit.id %}">🛠️</a>
+                {% endif %}
+                {% if perms.viewer.delete_habit %}
                     <a href="{% url 'habit_delete' habit.id %}">🗑️</a>
                 {% endif %}
             </li>

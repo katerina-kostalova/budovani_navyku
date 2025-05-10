@@ -11,15 +11,17 @@
 
 {% block content %}
     <h1>Překážky</h1>
-    {% if user.is_authenticated %}
+    {% if perms.viewer.add_obstacle %}
         <a href="{% url 'obstacle_create' %}" class="btn btn-primary">Přidat</a>
     {% endif %}
     <ul>
         {% for obstacle in obstacles %}
             <li>
                 <a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'obstacle_update' obstacle.id %}">🛠️</a>
+                {% if perms.viewer.change_obstacle %}
+                <a href="{% url 'obstacle_update' obstacle.id %}">🛠️</a>
+                {% endif %}
+                {% if perms.viewer.delete_obstacle %}
                     <a href="{% url 'obstacle_delete' obstacle.id %}">🗑️</a>
                 {% endif %}
             </li>
