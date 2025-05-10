@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
@@ -30,12 +31,12 @@ class HabitDetailView(DetailView):
     model = Habit
     context_object_name = 'habit'
 
-class HabitCreateView(CreateView):
+class HabitCreateView(LoginRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = HabitModelForm
     success_url = reverse_lazy('habits')
 
-class HabitUpdateView(UpdateView):
+class HabitUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = HabitModelForm
     model = Habit
@@ -45,7 +46,7 @@ class HabitUpdateView(UpdateView):
         print("Formulář není validní.")
         return super().form_invalid(form)
 
-class HabitDeleteView(DeleteView):
+class HabitDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Habit
     success_url = reverse_lazy('habits')
@@ -84,7 +85,7 @@ class ObstacleDetailView(DetailView):
     context_object_name = 'obstacle'
 
 
-class ObstacleCreateView(CreateView):
+class ObstacleCreateView(LoginRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = ObstacleModelForm
     success_url = reverse_lazy('obstacles')
@@ -93,7 +94,7 @@ class ObstacleCreateView(CreateView):
         print("Formulář 'ObstacleModelForm' není validní.")
         return super().form_invalid(form)
 
-class ObstacleUpdateView(UpdateView):
+class ObstacleUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = ObstacleModelForm
     model = Obstacle
@@ -103,7 +104,7 @@ class ObstacleUpdateView(UpdateView):
         print("Formulář 'ObstacleModelForm' není validní.")
         return super().form_invalid(form)
 
-class ObstacleDeleteView(DeleteView):
+class ObstacleDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Obstacle
     success_url = reverse_lazy('obstacles')
@@ -129,7 +130,7 @@ class RewardDetailView(DetailView):
     context_object_name = 'reward'
 
 
-class RewardCreateView(CreateView):
+class RewardCreateView(LoginRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = RewardModelForm
     success_url = reverse_lazy('rewards')
@@ -138,14 +139,14 @@ class RewardCreateView(CreateView):
         print("Formulář 'RewardModelForm' není validní.")
         return super().form_invalid(form)
 
-class RewardUpdateView(UpdateView):
+class RewardUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = RewardModelForm
     model = Reward
     success_url = reverse_lazy('rewards')
 
 
-class RewardDeleteView(DeleteView):
+class RewardDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'confirm_delete.html'
     model = Reward
     success_url = reverse_lazy('rewards')

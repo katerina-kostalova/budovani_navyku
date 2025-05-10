@@ -3,7 +3,9 @@
 
 
 from django.contrib import admin
-from django.urls import path
+from django.contrib.auth.views import LoginView, LogoutView
+from accounts.views import SubmittableLoginView, user_logout, SignUpView
+from django.urls import path, include
 
 from viewer.views import *
 
@@ -30,5 +32,12 @@ urlpatterns = [
     path('reward/delete/<int:pk>/', RewardDeleteView.as_view(), name='reward_delete'),
 
     path('search/', search, name='search'),
+
+
+    path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
+    path('accounts/logout/', user_logout, name='logout'),
+    #ostatní defaultní cesty, předefinované dábat před tohle
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', SignUpView.as_view(), name='signup'),
 
 ]

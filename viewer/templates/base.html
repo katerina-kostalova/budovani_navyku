@@ -14,6 +14,63 @@
 >
 
 <head>
+    <style>
+        body {
+            background-color: #14168f;  /* Světle modré pozadí */
+            font-family: 'Segoe UI', sans-serif;
+            color: #223;
+        }
+
+        .jumbotron {
+            background-color: #097560;  /* Jemně modrá pro jumbotron */
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background-color: #17a589;
+            border-color: #1750a5;
+        }
+
+        .btn-primary:hover {
+            background-color: #14168f;
+            border-color: #14168f;
+        }
+
+        a {
+            color: #117864;
+        }
+
+        a:hover {
+            color: #0e6251;
+            text-decoration: none;
+        }
+
+        label {
+            font-weight: 600;
+            color: #112678;
+        }
+
+        input[type="text"] {
+            border: 1px solid #b2dfdb;
+            border-radius: 4px;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
     <meta charset="utf-8"> {% comment %}nastavení language code, ted je to v unikodu {% endcomment %}
     <meta name="viewport" content="width=device-width, initial-scale=1">{% comment %}nastavení toho zobrazení {% endcomment %}
     <title>{% block title %}{% endblock %}</title>{% comment %} na tohle místo se mi vyplni obsah block title dané stranky{% endcomment %}
@@ -33,8 +90,8 @@
 <body>
 
 {% include "navbar.html" %} {% comment %} tady chci vložt obsat navbat.html{% endcomment %}
+    <div class="container">{% comment %} co se z té stínce bude zobrazovat  CONTEINER{% endcomment %}
 
-<div class="container">{% comment %} co se z té stínce bude zobrazovat  CONTEINER{% endcomment %}
     <div class="jumbotron">{% comment %} =)tybu jumbotron {% endcomment %}
         {% block content %}{% endblock %} {% comment %} sem vlož to, se bude definované v té dané template  {% endcomment %}
     </div>

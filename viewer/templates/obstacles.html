@@ -11,13 +11,17 @@
 
 {% block content %}
     <h1>Překážky</h1>
-    <a href="{% url 'obstacle_create' %}" class="btn btn-primary">Přidat</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'obstacle_create' %}" class="btn btn-primary">Přidat</a>
+    {% endif %}
     <ul>
         {% for obstacle in obstacles %}
             <li>
                 <a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a>
-                <a href="{% url 'obstacle_update' obstacle.id %}">🛠️</a>
-                <a href="{% url 'obstacle_delete' obstacle.id %}">🗑️</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'obstacle_update' obstacle.id %}">🛠️</a>
+                    <a href="{% url 'obstacle_delete' obstacle.id %}">🗑️</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

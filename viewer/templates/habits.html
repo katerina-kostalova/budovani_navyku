@@ -12,28 +12,46 @@ akorát do "block content " na base html ,, vloží obsah  habits html vloží{%
 
 
 {% block content %}
+
+
     <div class="filter-form">
-        <form method="post" action="/habit/filter/">
+        <form method="post" action="/habit/filter/"
+                class="form-row align-items-center">
             {% csrf_token %}
-            <label for="filter-category">Kategorie</label>
-            <input type="text" id="filter-category" name="filter-category"><br>
-            <label for="filter-name">Název</label>
-            <input type="text" id="filter-name" name="filter-name"><br>{% comment %}br=break=odřádkování{% endcomment %}
-            <label for="filter-obstacle">Překážky</label>
-            <input type="text" id="filter-obstacle" name="filter-obstacle"><br>
-            <label for="filter-reward">Odměny</label>
-            <input type="text" id="filter-reward" name="filter-reward"><br>
-            <input type="submit" id="id_submit" value="Filtr" class="btn btn-primary">
+            <div class="col-auto col-sm-1">
+                <input type="text" id="filter-category" name="filter-category"
+                    class="form-control form-control-sm" placeholder="Kategorie">
+            </div>
+            <div class="col-auto col-sm-1">
+                <input type="text" id="filter-name" name="filter-name"
+                       class="form-control form-control-sm" placeholder="Název">
+            </div>
+            <div class="col-auto col-sm-1">
+                <input type="text" id="filter-obstacle" name="filter-obstacle"
+                       class="form-control form-control-sm" placeholder="Překážka">
+            </div>
+            <div class="col-auto col-sm-1">
+                <input type="text" id="filter-reward" name="filter-reward"
+                       class="form-control form-control-sm" placeholder="Odměna">
+            </div>
+            <div class="col-auto">
+                <input type="submit" id="id_submit" value="Filtr"
+                       class="btn btn-primary btn-sm">
+            </div>
         </form>
     </div>
     <h1>Návyky</h1>
-    <a href="{% url 'habit_create' %}" class="btn btn-primary">Přidat</a>{% comment %}tačítko přidat{% endcomment %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'habit_create' %}" class="btn btn-primary">Přidat</a>{% comment %}tačítko přidat{% endcomment %}
+    {% endif %}
     <ul>
         {% for habit in habits %} {% comment %}vykreslí mi ty dané návyky{% endcomment %}
             <li>
                 <a href="{% url 'habit' habit.id %}">{{ habit }}</a>{% comment %}potřebuju odkaz, kt bude odkazovat na habit id jine id{% endcomment %}
-                <a href="{% url 'habit_update' habit.id %}">🛠️</a>
-                <a href="{% url 'habit_delete' habit.id %}">🗑️</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'habit_update' habit.id %}">🛠️</a>
+                    <a href="{% url 'habit_delete' habit.id %}">🗑️</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
