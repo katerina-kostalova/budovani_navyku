@@ -3,6 +3,9 @@ from django.db.models import (Model, CharField, TextField, DateField, DateTimeFi
 
 from django.contrib.auth.models import User
 
+from accounts.models import Profile
+
+
 #from accounts.models import Profile
 
 
@@ -113,7 +116,7 @@ class Habit(Model):
 
 
 
-'''
+
 class Review(Model):
     habit = ForeignKey(Habit, on_delete=CASCADE, null=False, blank=False, related_name='reviews')
     reviewer = ForeignKey(Profile, on_delete=SET_NULL, null=True, blank=False, related_name='reviews')
@@ -129,13 +132,13 @@ class Review(Model):
         return (f"Review(habit={self.habit}, "
                 f"reviewer={self.reviewer}, "
                 f"rating={self.rating}, "
-                f"comment={self.comment[:100]}, "
+                f"comment={self.comment[:100]} "
                 )
 
     def __str__(self):
         return f"{self.reviewer}: {self.habit}({self.rating})"
 
-
+'''
 
 
 

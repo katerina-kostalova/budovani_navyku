@@ -1,9 +1,8 @@
 import re
 
-from django.forms import ModelForm, CharField, TextInput, DateField, NumberInput
+from django.forms import ModelForm, CharField, TextInput, DateField, NumberInput, IntegerField
 from django.core.exceptions import ValidationError
-from viewer.models import Habit, Obstacle, Reward
-
+from viewer.models import Habit, Obstacle, Reward, Review
 
 
 class HabitModelForm(ModelForm):
@@ -154,3 +153,18 @@ class RewardModelForm(ModelForm):
         sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
         return '. '.join(sentence.capitalize() for sentence in sentences)
 
+
+
+
+class ReviewModelForm(ModelForm):
+
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment']
+
+        labels = {
+            'rating' : 'Hodnocení',
+            'comment' : 'Komentář'
+        }
+
+    rating = IntegerField(min_value=1, max_value=5, required=False)

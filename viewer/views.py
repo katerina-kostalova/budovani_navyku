@@ -1,15 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.db.models import Avg
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm
+from accounts.models import Profile
+from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm
 from viewer.mixins import StaffRequiredMixin
-from viewer.models import Habit, Category, Obstacle, Reward
-
-
-
-
+from viewer.models import Habit, Category, Obstacle, Reward, Review
 
 
 #FUNKCIONALITA
@@ -31,6 +29,38 @@ class HabitDetailView(DetailView):
     template_name = 'habit.html'
     model = Habit
     context_object_name = 'habit'
+
+
+def habit(request, pk):
+    if Habit.objects.filter(id=pk).exists():
+        habit_ = Habit.objects.get(id=pk)
+        if request.method == 'POST':
+            rating = request.POST.get('rating')
+            comment = request.POST.get('comment')
+
+            if Review.objects.filter(habit=habit_, reviewer=Profile.objects.get(user=request.user)).exists():
+                user_review = Review.objects.get(habit=habit_, reviewer=Profile.objects.get(user=request.user))
+                user_review.rating = rating
+                user_review.comment = comment
+                user_review.save()
+            else:
+
+                Review.objects.create(
+                    habit=habit_,
+                    reviewer=Profile.objects.get(user=request.user),
+                    rating=rating,
+                    comment=comment
+                )
+        rating_avg = habit_.reviews.aggregate(Avg('rating'))['rating__avg']
+        rating_count = habit_.reviews.filter(rating__isnull=False).count()
+
+        context = {'habit': habit_,
+                   'review_form' : ReviewModelForm,
+                   'rating_avg': rating_avg,
+                   'rating_count': rating_count}
+        return render(request, 'habit.html', context)
+    return redirect('habits')
+
 
 class HabitCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'form.html'
@@ -215,5 +245,10 @@ def habit_filter(request):
         return render(request, 'habits.html', context)
     return render(request, 'home.html') #když nic nepošleme, vrátíme se na home
 
+
+class ReviewDeleteView(DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Review
+    success_url = reverse_lazy('habits')
 
 

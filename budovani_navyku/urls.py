@@ -13,7 +13,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'), # když za 8000 nebidi mít nic napsáno, odkážu se na home, zavolámi fci ve views "hoeme", tami vykresli tamplate homehtml
     path('habits/', HabitsListView.as_view(), name='habits'),
-    path('habit/<int:pk>/', HabitDetailView.as_view(), name='habit'), #potřebuju id konkrétního návyku 8000/habit/id 1/
+    #path('habit/<int:pk>/', HabitDetailView.as_view(), name='habit'), #potřebuju id konkrétního návyku 8000/habit/id 1/
+    path('habit/<int:pk>/', habit, name='habit'),
     path('habit/create/', HabitCreateView.as_view(), name='habit_create'),
     path('habit/update/<int:pk>/', HabitUpdateView.as_view(), name='habit_update'), #musím definovat, které chci updatovat id
     path('habit/delete/<int:pk>/', HabitDeleteView.as_view(), name='habit_delete'),
@@ -38,6 +39,7 @@ urlpatterns = [
     path('accounts/logout/', user_logout, name='logout'),
     #ostatní defaultní cesty, předefinované dábat před tohle
     path('accounts/', include('django.contrib.auth.urls')),
+    path('review/delete/<int:pk>/', ReviewDeleteView.as_view(), name='review_delete'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 
 ]

@@ -42,6 +42,8 @@
 
 # Obrázek databáze
 ![ER diagram](./files/ER_v1.png)
+![ER diagram](./files/ER_v2.png)
+
 
 # Databáze
 - [x] Category
