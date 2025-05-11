@@ -2,7 +2,7 @@ import re
 
 from django.forms import ModelForm, CharField, TextInput, DateField, NumberInput, IntegerField
 from django.core.exceptions import ValidationError
-from viewer.models import Habit, Obstacle, Reward, Review
+from viewer.models import Habit, Obstacle, Reward, Review, Image
 
 
 class HabitModelForm(ModelForm):
@@ -168,3 +168,15 @@ class ReviewModelForm(ModelForm):
         }
 
     rating = IntegerField(min_value=1, max_value=5, required=False)
+
+
+
+
+
+
+class ImageModelForm(ModelForm):
+
+    class Meta:
+        model = Image
+        fields = '__all__'
+

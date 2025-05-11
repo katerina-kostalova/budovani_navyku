@@ -19,6 +19,17 @@
                 Není dafinovaná žádná kategorie pro tento návyk.
             {% endfor %}
     </p>
+
+    <div class="habit-images">
+        {% for image in habit.images.all %}
+            <span class="habit-image">
+                <img src="{{ image.image.url }}"
+                     alt="{{ image.description }}"
+                     width="300px">
+            </span>
+        {% endfor %}
+    </div>
+
     <hr class="my-4">
     <div class="row">
         <div class="col-md-6">

@@ -73,6 +73,8 @@
   - [x] created_at (date)
   - [x] updated_at (date)
   - [x] description (string)
+  - [x] rating (float)
+  - [x] images (image)
   
 - [x] Review
   - [x] habit (string)

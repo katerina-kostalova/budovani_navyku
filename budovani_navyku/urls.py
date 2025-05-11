@@ -1,12 +1,10 @@
-
-
-
-
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from accounts.views import SubmittableLoginView, user_logout, SignUpView
 from django.urls import path, include
 
+from budovani_navyku import settings
 from viewer.views import *
 
 urlpatterns = [
@@ -31,9 +29,14 @@ urlpatterns = [
     path('reward/create/', RewardCreateView.as_view(), name='reward_create'),
     path('reward/update/<int:pk>/', RewardUpdateView.as_view(), name='reward_update'),
     path('reward/delete/<int:pk>/', RewardDeleteView.as_view(), name='reward_delete'),
+    path('images/', ImageListView.as_view(), name='images'),
+    path('image/<int:pk>/', ImageDetailView.as_view(), name='image'),
+    path('image/create/', ImageCreateView.as_view(), name='image_create'),
+    path('image/update/<int:pk>/', ImageUpdateView.as_view(), name='image_update'),
+    path('image/delete/<int:pk>/', ImageDeleteView.as_view(), name='image_delete'),
+
 
     path('search/', search, name='search'),
-
 
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
     path('accounts/logout/', user_logout, name='logout'),
@@ -42,4 +45,4 @@ urlpatterns = [
     path('review/delete/<int:pk>/', ReviewDeleteView.as_view(), name='review_delete'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

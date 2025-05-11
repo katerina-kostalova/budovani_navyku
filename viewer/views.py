@@ -5,9 +5,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.shortcuts import render, redirect
 
 from accounts.models import Profile
-from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm
+from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm, ImageModelForm
 from viewer.mixins import StaffRequiredMixin
-from viewer.models import Habit, Category, Obstacle, Reward, Review
+from viewer.models import Habit, Category, Obstacle, Reward, Review, Image
 
 
 #FUNKCIONALITA
@@ -250,5 +250,45 @@ class ReviewDeleteView(DeleteView):
     template_name = 'confirm_delete.html'
     model = Review
     success_url = reverse_lazy('habits')
+
+
+
+
+
+
+
+
+class ImageListView(ListView):
+    template_name = 'images.html'
+    model = Image
+    context_object_name = 'images'
+
+
+class ImageDetailView(DetailView):
+    model = Image
+    template_name = 'image.html'
+
+
+
+class ImageCreateView(PermissionRequiredMixin, CreateView):
+    template_name = 'form_image.html'
+    form_class = ImageModelForm
+    success_url = reverse_lazy('home')
+    permission_required = 'viewer.add_image'
+
+
+class ImageUpdateView(PermissionRequiredMixin, UpdateView):
+    template_name = 'form_image.html'
+    form_class = ImageModelForm
+    success_url = reverse_lazy('images')
+    model = Image
+    permission_required = 'viewer.change_image'
+
+
+class ImageDeleteView(PermissionRequiredMixin,DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Image
+    success_url = reverse_lazy('images')
+    permission_required = 'viewer.delete_image'
 
 

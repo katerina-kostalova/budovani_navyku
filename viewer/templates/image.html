@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Obrázek: {{ image.description }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-5">
+        <img src="{{ image.image.url }}"
+             alt="{{ image.description }}"
+             height="80%">
+    </div>
+
+    <div class="image.details mt-4">
+        {% if image.movie %}
+            <div class="image-movie mb-2">
+                Návyk: <a href="{% url 'habit' image.habit.id %}">{{ image.habit.name }}</a>
+            </div>
+        {% endif %}
+
+        {% if image.obstacles.all %}
+            <div class="image-obstacle mb-2">
+                {% for obstacle in image.obstacles.all %}
+                    <a href="{% url 'obstacle' obstacle.id %}">{{ obstacle }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="image.description mb-2">
+            Popis: {{ image.description }}
+        </div>
+    </div>
+
+    {% if perms.viewer.change_image %}
+        <a href="{% url 'image_update' image.id %}" class="btn btn-primary">Aktualizovat</a>
+    {% endif %}
+    {% if perms.viewer.delete_image %}
+    <a href="{% url 'image_delete' image.id %}" class="btn btn-danger">Smazat</a>
+    {% endif%}
+{% endblock %}

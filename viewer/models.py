@@ -1,5 +1,5 @@
 from django.db.models import (Model, CharField, TextField, DateField, DateTimeField, ForeignKey, ImageField,
-                              IntegerField, SET_NULL, BooleanField, ManyToManyField, CASCADE)
+                              IntegerField, SET_NULL, ManyToManyField, CASCADE)
 
 from django.contrib.auth.models import User
 
@@ -138,13 +138,15 @@ class Review(Model):
     def __str__(self):
         return f"{self.reviewer}: {self.habit}({self.rating})"
 
-'''
+
 
 
 
 class Image(Model):
     image = ImageField(upload_to='images/', default=None, null=False, blank=False)
     habit = ForeignKey('Habit', on_delete=SET_NULL, null=True, blank=True, related_name='images')
+    obstacle = ForeignKey('Obstacle', on_delete=SET_NULL, null=True, blank=True, related_name='images')
+    reward = ForeignKey('Reward', on_delete=SET_NULL, null=True, blank=True, related_name='images')
     description = TextField(blank=True, null=True)
 
     def __repr__(self):
@@ -152,4 +154,4 @@ class Image(Model):
 
     def __str__(self):
         return f"Image:{self.image}"
-'''
+
