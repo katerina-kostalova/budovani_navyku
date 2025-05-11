@@ -11,7 +11,6 @@ from django.shortcuts import render, redirect
 from accounts.models import Profile
 from budovani_navyku.settings import DEBUG
 from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm, ImageModelForm
-from viewer.mixins import StaffRequiredMixin
 from viewer.models import Habit, Category, Obstacle, Reward, Review, Image
 
 
@@ -28,6 +27,8 @@ class HabitsListView(ListView):
     template_name = 'habits.html'
     model = Habit
     context_object_name = 'habits'
+    paginate_by = 10
+
 
 
 class HabitDetailView(DetailView):
@@ -39,12 +40,14 @@ class HabitDetailView(DetailView):
 def habit(request, pk):
     if Habit.objects.filter(id=pk).exists():
         habit_ = Habit.objects.get(id=pk)
+        profile_ = Profile.objects.get(user=request.user)
         if request.method == 'POST':
             rating = request.POST.get('rating')
             comment = request.POST.get('comment')
 
+
             if Review.objects.filter(habit=habit_, reviewer=Profile.objects.get(user=request.user)).exists():
-                user_review = Review.objects.get(habit=habit_, reviewer=Profile.objects.get(user=request.user))
+                user_review = Review.objects.get(habit=habit_, reviewer=profile_)
                 user_review.rating = rating
                 user_review.comment = comment
                 user_review.save()
@@ -52,17 +55,19 @@ def habit(request, pk):
 
                 Review.objects.create(
                     habit=habit_,
-                    reviewer=Profile.objects.get(user=request.user),
+                    reviewer=profile_,
                     rating=rating,
                     comment=comment
                 )
+
         rating_avg = habit_.reviews.aggregate(Avg('rating'))['rating__avg']
         rating_count = habit_.reviews.filter(rating__isnull=False).count()
 
         context = {'habit': habit_,
                    'review_form' : ReviewModelForm,
                    'rating_avg': rating_avg,
-                   'rating_count': rating_count}
+                   'rating_count': rating_count,
+                    'profile' : profile_ }
         return render(request, 'habit.html', context)
     return redirect('habits')
 
@@ -117,6 +122,8 @@ class ObstaclesListView(ListView):
     template_name = 'obstacles.html'
     model = Obstacle
     context_object_name = 'obstacles'
+    paginate_by = 10
+
 
 class ObstacleDetailView(DetailView):
     template_name = 'obstacle.html'
@@ -164,6 +171,8 @@ class RewardsListView(ListView):
     template_name = 'rewards.html'
     model = Reward
     context_object_name = 'rewards'
+    paginate_by = 10
+
 
 
 class RewardDetailView(DetailView):
@@ -330,3 +339,29 @@ def name_day(request):
     name = result_json[0]['name']
     context = {'name': name}
     return render(request, 'nameday.html', context)
+
+
+
+
+def acquired_habit(request, pk):
+    profile_ = Profile.objects.get(user=request.user)
+    habit_ = Habit.objects.get(id=pk)
+
+    if habit_ in profile_.acquired_habit.all():
+        profile_.acquired_habit.remove(habit_)
+    else:
+        profile_.acquired_habit.add(habit_)
+
+    return redirect('habit', pk)
+
+
+def targeted_habit(request, pk):
+    profile_ = Profile.objects.get(user=request.user)
+    habit_ = Habit.objects.get(id=pk)
+
+    if habit_ in profile_.targeted_habit.all():
+        profile_.targeted_habit.remove(habit_)
+    else:
+        profile_.targeted_habit.add(habit_)
+
+    return redirect('habit', pk)

@@ -9,7 +9,7 @@ class HabitModelForm(ModelForm):
 
     class Meta:
         model = Habit
-        fields = '__all__'
+        exclude = ['in_acquired_habit', 'in_targeted_habit']
 
 
         labels = {

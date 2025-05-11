@@ -37,6 +37,9 @@ urlpatterns = [
 
 
     path('search/', search, name='search'),
+    path('acquired_habit/<int:pk>/', acquired_habit, name='acquired_habit'),
+    path('targeted_habit/<int:pk>/', targeted_habit, name='targeted_habit'),
+
 
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
     path('accounts/logout/', user_logout, name='logout'),

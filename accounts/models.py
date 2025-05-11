@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
-from django.db import models
 from django.db.models import OneToOneField, Model, CASCADE, TextField, DateField
+
 
 
 class Profile(Model):
@@ -8,6 +8,7 @@ class Profile(Model):
     date_of_birth = DateField(null=True, blank=True)
     biography = TextField(null=True, blank=True)
     phone = TextField(null=True, blank=True)
+
 
     class Meta:
         ordering = ['user__username']

@@ -101,6 +101,8 @@ class Habit(Model):
     start_date = DateField(blank=True, null=True)
     status = CharField(max_length=32, choices=STATUS_CHOICES, default='not_started')
     created_at = DateTimeField(auto_now_add=True, null=True)
+    in_acquired_habit = ManyToManyField(Profile, blank=True, related_name='acquired_habit')
+    in_targeted_habit = ManyToManyField(Profile, blank=True, related_name='targeted_habit')
     updated_at = DateTimeField(auto_now=True)
     description = TextField(max_length=5000, null=True)
 
