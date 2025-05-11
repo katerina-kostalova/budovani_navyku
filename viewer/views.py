@@ -1,10 +1,15 @@
+import os
+from datetime import  datetime
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+import requests
 from django.db.models import Avg
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect
 
 from accounts.models import Profile
+from budovani_navyku.settings import DEBUG
 from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm, ImageModelForm
 from viewer.mixins import StaffRequiredMixin
 from viewer.models import Habit, Category, Obstacle, Reward, Review, Image
@@ -208,6 +213,25 @@ def search(request):
             reward_description = Reward.objects.filter(description__icontains=search_string)
 
 
+            #google search api
+            url = (f"https://www.googleapis.com/customsearch/v1"
+                   f"?key={os.getenv('GOOGLE_API_KEY')}"
+                   f"&cx={os.getenv('GOOGLE_CX')}"
+                   f"&q={search_string}")
+            g_request = requests.get(url)
+            if DEBUG:
+                print(f"g_request: {g_request}")
+            g_json = g_request.json()
+            if DEBUG:
+                for g_result in g_json['items']:
+                    print(g_result['title'])
+                    print(f"\t{g_result['link']}")
+                    print(f"\t{g_result['displayLink']}")
+                    print(f"\t{g_result['snippet']}")
+
+
+
+
             context = { 'search' : search_string,
                         'habit_name' : habit_name,
                         'habit_description' : habit_description,
@@ -215,9 +239,10 @@ def search(request):
                         'obstacle_name' : obstacle_name,
                         'obstacle_description' : obstacle_description,
                         'reward_name' : reward_name,
-                        'reward_description' : reward_description,}
+                        'reward_description' : reward_description,
+                        'g_json' : g_json}
 
-        return render(request, 'search.html', context)
+            return render(request, 'search.html', context)
     return render(request, 'home.html')
 
 
@@ -292,3 +317,16 @@ class ImageDeleteView(PermissionRequiredMixin,DeleteView):
     permission_required = 'viewer.delete_image'
 
 
+def name_day(request):
+    month = datetime.today().month
+    if month < 10:
+        month = f"0{month}"
+    day = datetime.today().day
+    if day < 10:
+        day = f"0{day}"
+    url=f"https://svatky.adresa.info/json?date={day}{month}"
+    result_request = requests.get(url)
+    result_json = result_request.json()
+    name = result_json[0]['name']
+    context = {'name': name}
+    return render(request, 'nameday.html', context)

@@ -44,5 +44,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('review/delete/<int:pk>/', ReviewDeleteView.as_view(), name='review_delete'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
+    #API
+    path('nameday/', name_day, name='nameday'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -63,4 +63,21 @@
             Nenalezen žádný záznam
         {% endfor %}
     </ul>
+    <hr>
+    <h2>Výsledky vyhledávání na:
+        <div>
+        <a href="https://psychologie.cz/">Psychologie.cz</a></h2>
+        <h2><a href="https://ondrejsams.cz//">OndřejŠams.cz</a></h2>
+        <h2><a href="https://jakserychlenaucit.cz//">JakSeRychleNaučit.cz</a></h2>
+
+    </div>
+    <ul>
+        {% for g_result in g_json.items %}
+            <li>
+                <a href="{{ g_result.link }}">{{ g_result.title }}</a><br>
+                    {{ g_result.snippet }}
+        {% endfor %}
+
+            </li>
+    </ul>
 {% endblock %}
