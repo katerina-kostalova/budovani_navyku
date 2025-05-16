@@ -93,46 +93,6 @@ def habit(request, pk):
 
 
 
-'''
-
-
-
-def habit(request, pk):
-    if Habit.objects.filter(id=pk).exists():
-        habit_ = Habit.objects.get(id=pk)
-
-        profile_ = Profile.objects.get(user=request.user)
-        if request.method == 'POST':
-            rating = request.POST.get('rating')
-            comment = request.POST.get('comment')
-
-
-            if Review.objects.filter(habit=habit_, reviewer=Profile.objects.get(user=request.user)).exists():
-                user_review = Review.objects.get(habit=habit_, reviewer=profile_)
-                user_review.rating = rating
-                user_review.comment = comment
-                user_review.save()
-            else:
-
-                Review.objects.create(
-                    habit=habit_,
-                    reviewer=profile_,
-                    rating=rating,
-                    comment=comment
-                )
-
-        rating_avg = habit_.reviews.aggregate(Avg('rating'))['rating__avg']
-        rating_count = habit_.reviews.filter(rating__isnull=False).count()
-
-        context = {'habit': habit_,
-                   'review_form' : ReviewModelForm,
-                   'rating_avg': rating_avg,
-                   'rating_count': rating_count,
-                    'profile' : profile_ }
-        return render(request, 'habit.html', context)
-    return redirect('habits')
-
-'''
 
 
 
