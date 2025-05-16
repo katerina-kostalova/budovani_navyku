@@ -1,0 +1,30 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam kategorií
+{% endblock %}
+
+
+{% block content %}
+    <h1>Kategorie</h1>
+    <ul>
+        {% for category in categories %}
+            {% if category.habits.count %}
+                <a href="{% url 'category' category.id %}">{{ category }}</a> ({{ category.habits.count }}) </li>
+                <ul>
+                    {% for habit in category.habits.all %}
+                        <li><a href="{%  url 'habit' habit.id %}">{{ habit }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% include 'paginator.html' %}
+
+{% endblock %}
+
+

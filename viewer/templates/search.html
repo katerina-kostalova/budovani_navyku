@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Vyhledávání '{{ search }}'
+{% endblock %}
+
+{% block content %}
+    <h2>Výsledky vyhledávání dotazu '{{ search }}'</h2>
+
+    <h2>Výsledky pro název návyku</h2>
+    <ul>
+        {% for habit in habit_name %}
+            <li><a href="{% url 'habit' habit.id %} ">{{ habit }}</a></li>
+        {% empty %} Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+
+    <h2>Výsledky pro popis návyku</h2>
+    <ul>
+        {% for habit in habit_description %}
+            <li><a href="{% url 'habit' habit.id %} ">{{ habit }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <h2>Výsledky název překážky</h2>
+    <ul>
+        {% for obstacle in obstacle_name %}
+            <li><a href="{% url 'obstacle' obstacle.id %} ">{{ obstacle }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <h2>Výsledky pro popis překážky</h2>
+    <ul>
+        {% for obstacle in obstacle_description %}
+            <li><a href="{% url 'obstacle' obstacle.id %} ">{{ obstacle }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <h2>Výsledky pro název odměny</h2>
+    <ul>
+        {% for reward in reward_name %}
+            <li><a href="{% url 'reward' reward.id %} ">{{ reward }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <h2>Výsledky pro popis odměny</h2>
+    <ul>
+        {% for reward in reward_description %}
+            <li><a href="{% url 'reward' reward.id %} ">{{ reward }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <h2>Výsledky pro název kategorie</h2>
+    <ul>
+        {% for category in category_name %}
+            <li><a href="{% url 'category' category.id %} ">{{ category }}</a></li>
+        {% empty %}
+            Nenalezen žádný záznam
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>Výsledky vyhledávání na:
+        <div>
+        <a href="https://psychologie.cz/">Psychologie.cz</a></h2>
+        <h2><a href="https://ondrejsams.cz//">OndřejŠams.cz</a></h2>
+        <h2><a href="https://jakserychlenaucit.cz//">JakSeRychleNaučit.cz</a></h2>
+
+    </div>
+    <ul>
+        {% for g_result in g_json.items %}
+            <li>
+                <a href="{{ g_result.link }}">{{ g_result.title }}</a><br>
+                    {{ g_result.snippet }}
+        {% endfor %}
+
+            </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Kategorie: {{ category }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ category }}</h1>
+        <ul>
+            {% for habit in category.habits.all %}
+                <li><a href="{% url 'habit' habit.id %}">{{ habit }}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock %}

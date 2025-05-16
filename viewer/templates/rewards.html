@@ -1,0 +1,31 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam odměn
+{% endblock %}
+
+
+{% block content %}
+    <h1>Odměny</h1>
+    {% if perms.viewer.add_reward %}
+        <a href="{% url 'reward_create' %}" class="btn btn-primary">Přidat</a>
+    {% endif %}
+    <ul>
+        {% for reward in rewards %}
+            <li>
+                <a href="{% url 'reward' reward.id %}">{{ reward }}</a>
+                {% if perms.viewer.change_reward %}
+                    <a href="{% url 'reward_update' reward.id %}">🛠️</a>
+                {% endif %}
+                {% if perms.viewer.delete_reward %}
+                    <a href="{% url 'reward_delete' reward.id %}">🗑️</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% include 'paginator.html' %}
+{% endblock %}

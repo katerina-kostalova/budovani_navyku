@@ -1,0 +1,635 @@
+[
+  {
+    "model": "viewer.category",
+    "pk": 1,
+    "fields": {
+      "name": "Cestování"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 2,
+    "fields": {
+      "name": "Cíle a plánování"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 3,
+    "fields": {
+      "name": "Digitální hygiena"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 4,
+    "fields": {
+      "name": "Domácnost"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 5,
+    "fields": {
+      "name": "Ekologie a udržitelnost"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 6,
+    "fields": {
+      "name": "Finance"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 7,
+    "fields": {
+      "name": "Jazyky"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 8,
+    "fields": {
+      "name": "Kariérní růst"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 9,
+    "fields": {
+      "name": "Komunikace"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 10,
+    "fields": {
+      "name": "Komunita"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 11,
+    "fields": {
+      "name": "Kreativita"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 12,
+    "fields": {
+      "name": "Mindfulness"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 13,
+    "fields": {
+      "name": "Osobní rozvoj"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 14,
+    "fields": {
+      "name": "Ostatní"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 15,
+    "fields": {
+      "name": "Produktivita"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 16,
+    "fields": {
+      "name": "Rodina"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 17,
+    "fields": {
+      "name": "Sebedisciplína"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 18,
+    "fields": {
+      "name": "Sebeláska a péče o sebe"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 19,
+    "fields": {
+      "name": "Sebepoznání"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 20,
+    "fields": {
+      "name": "Sport a pohyb"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 21,
+    "fields": {
+      "name": "Spánek a regenerace"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 22,
+    "fields": {
+      "name": "Stravování"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 23,
+    "fields": {
+      "name": "Tvůrčí činnost"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 24,
+    "fields": {
+      "name": "Vzdělání"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 25,
+    "fields": {
+      "name": "Vztahy"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 26,
+    "fields": {
+      "name": "Víra a spiritualita"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 27,
+    "fields": {
+      "name": "Zdraví"
+    }
+  },
+  {
+    "model": "viewer.category",
+    "pk": 28,
+    "fields": {
+      "name": "Zábava a volný čas"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 1,
+    "fields": {
+      "name": "Chybějící podpora",
+      "description": "Chybějící podpora znamená nedostatek pomoci, motivace nebo uznání od okolí, například od kolegů, vedení nebo rodiny. Tato překážka může výrazně snížit motivaci jedince a vést k pocitu osamocení nebo frustrace. Bez podpory je obtížnější zvládat náročné úkoly, činit rozhodnutí nebo dosahovat stanovených cílů. Může také zpomalit osobní i profesní růst, protože chybí zpětná vazba a povzbuzení. K překonání této překážky pomáhá otevřená komunikace a hledání podpůrného prostředí nebo mentorů.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:53:22.233Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 2,
+    "fields": {
+      "name": "Disciplína",
+      "description": "Disciplína představuje schopnost udržet si sebekontrolu a vytrvat v plnění úkolů i přes obtíže nebo pokušení. Je klíčová pro dosažení dlouhodobých cílů, protože pomáhá člověku jednat systematicky a zodpovědně. Nedostatek disciplíny často vede k prokrastinaci, neefektivitě a neplnění závazků. Rozvíjení disciplíny vyžaduje trénink, stanovení priorit a schopnost odolávat rozptýlení. Pomáhá také vytvářet návyky, které podporují produktivitu a osobní růst.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:54:07.471Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 3,
+    "fields": {
+      "name": "Důraz na výsledky místo procesu",
+      "description": "Důraz na výsledky místo procesu znamená zaměřování se výhradně na konečný cíl, místo aby byla oceněna i cesta a úsilí vedoucí k jeho dosažení. Tento přístup může vést k přehlížení důležitých dovedností, zkušeností a hodnot získaných během samotného procesu. Lidé se pak mohou cítit pod tlakem, ztrácet motivaci nebo jednat neeticky, jen aby dosáhli očekávaného výsledku. Nedostatečné uznání procesu může omezit kreativitu a ochotu riskovat či experimentovat. Rovnováha mezi procesem a výsledkem přináší zdravější přístup k učení i výkonu.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:54:33.961Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 4,
+    "fields": {
+      "name": "Motivace",
+      "description": "Motivace je vnitřní nebo vnější síla, která člověka pohání k činnosti, dosahování cílů a překonávání překážek. Když motivace chybí, člověk může ztratit zájem, energii a smysl pro směr. Nedostatek motivace často souvisí s nejasnými cíli, vyčerpáním nebo nízkým sebevědomím. Motivaci lze posilovat stanovením dosažitelných cílů, vnitřním uvědoměním si smyslu dané činnosti nebo podporou od okolí. Udržení motivace je klíčové pro dlouhodobý úspěch a spokojenost.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:54:57.107Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 5,
+    "fields": {
+      "name": "Nedostatek důslednosti",
+      "description": "Nedostatek důslednosti znamená, že člověk nedodržuje stanovený plán, pravidla nebo postupy pravidelně a spolehlivě. Tato překážka může vést k neplnění úkolů, ztrátě důvěry a nižší efektivitě. Bez důslednosti se ztěžuje budování návyků a dlouhodobý pokrok v jakékoli oblasti. Lidé, kteří nejsou důslední, často začínají věci s nadšením, ale rychle ztrácejí tempo nebo zájem. K posílení důslednosti pomáhá vytvoření rutiny, stanovení realistických cílů a pravidelné sebehodnocení.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:55:23.767Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 6,
+    "fields": {
+      "name": "Nedostatek sebedůvěry",
+      "description": "Nedostatek sebedůvěry znamená, že člověk pochybuje o svých schopnostech, rozhodnutích nebo hodnotě. Tato překážka může bránit v aktivním zapojení, prosazení vlastních názorů nebo v přijímání nových výzev. Lidé s nízkou sebedůvěrou často podceňují své úspěchy a obávají se neúspěchu či odmítnutí. Tento stav může být posílen negativními zkušenostmi, kritikou nebo srovnáváním se s ostatními. Budování sebedůvěry vyžaduje pozitivní zpětnou vazbu, realistické cíle a uznání vlastního pokroku.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:55:50.055Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 7,
+    "fields": {
+      "name": "Nedostatečná odměna",
+      "description": "Nedostatečná odměna znamená, že úsilí nebo výsledky jednotlivce nejsou dostatečně oceněny, ať už finančně, slovně, nebo jinou formou uznání. To může vést k pocitu nedocenění, demotivaci a poklesu výkonu. Lidé jsou přirozeně motivováni, když vidí, že jejich práce má smysl a je oceňována. Pokud odměna dlouhodobě chybí, může to vést k frustraci, vyhoření nebo odchodu z daného prostředí. Pravidelné uznání a přiměřená odměna posilují loajalitu, spokojenost i vnitřní motivaci.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:56:13.643Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 8,
+    "fields": {
+      "name": "Nejasnost cílů",
+      "description": "Nejasnost cílů znamená, že jednotlivci nebo týmy nemají jasně definované, konkrétní a srozumitelné cíle, na které by se mohli zaměřit. Tato překážka často vede k nejistotě, neefektivnímu vynakládání energie a ztrátě směru. Bez jasného cíle je obtížné měřit pokrok, plánovat kroky a udržet motivaci. Lidé pak mohou pracovat neuspořádaně nebo se soustředit na méně důležité činnosti. Stanovení konkrétních, dosažitelných a časově vymezených cílů pomáhá orientaci, zvyšuje efektivitu a posiluje odpovědnost.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:58:16.136Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 9,
+    "fields": {
+      "name": "Nepohodlí",
+      "description": "Nepohodlí představuje fyzický nebo psychický stav, který způsobuje stres, nejistotu nebo ztrátu koncentrace při plnění úkolů. Může vycházet z vnějších podmínek, jako je hlučné prostředí, nebo z vnitřních pocitů, například únavy, úzkosti či tlaku. Pokud nepohodlí trvá delší dobu, negativně ovlivňuje výkon, motivaci i celkovou pohodu člověka. Lidé mají tendenci se mu vyhýbat, což může vést k odkládání důležitých úkolů nebo snižování nároků na sebe sama. Řešením je vytvoření podpůrného prostředí, práce s emocemi a nalezení způsobů, jak zvládat stresové situace.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:58:46.360Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 10,
+    "fields": {
+      "name": "Podmínky",
+      "description": "Podmínky jsou vnější faktory, které mohou výrazně ovlivnit schopnost jednotlivce dosahovat cílů nebo vykonávat úkoly. Tyto faktory mohou zahrnovat pracovní prostředí, dostupné zdroje, technologii, organizační podporu nebo dokonce kulturní a sociální normy. Nepříznivé podmínky mohou vést k frustraci, snížené produktivitě a neschopnosti dosáhnout stanovených cílů. Pokud podmínky nejsou ideální, může být potřeba se přizpůsobit nebo hledat způsoby, jak je vylepšit, aby se maximalizoval výkon. Zlepšení podmínek, například vytvořením příjemného a podpůrného prostředí, může výrazně zvýšit efektivitu a spokojenost.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:59:11.300Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 11,
+    "fields": {
+      "name": "Prokrastinace",
+      "description": "Prokrastinace je tendence odkládat úkoly nebo rozhodnutí na později, často i přes vědomí, že to může mít negativní důsledky. Tento jev může být způsoben různými faktory, jako je strach z neúspěchu, nedostatek motivace, úzkost nebo ztráta jasné vize. Prokrastinace může vést k hromadění práce, stresu a pocitu viny. Lidé, kteří se často uchylují k prokrastinaci, mohou mít potíže s organizací času a prioritizováním úkolů. Efektivní způsoby, jak se s tímto problémem vyrovnat, zahrnují stanovení konkrétních cílů, rozdělení úkolů na menší části a používání technik pro zvýšení produktivity, jako je metoda Pomodoro.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T19:59:38.149Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 12,
+    "fields": {
+      "name": "Přetížení povinnostmi",
+      "description": "Přetížení povinnostmi nastává, když má člověk příliš mnoho úkolů nebo odpovědností, což může vést k únavě, stresu a neschopnosti se soustředit na jednotlivé úkoly. Tento stav často způsobuje, že člověk nemůže efektivně plnit své povinnosti, protože je přetížený a nemá dostatek času na jejich kvalitní vykonání. Kromě toho přetížení povinnostmi může mít negativní dopad na zdraví, osobní život a pracovní výkon. Aby se přetížení předešlo, je důležité správně prioritizovat úkoly, delegovat některé zodpovědnosti a naučit se říkat \"ne\", když to je nutné.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:00:02.472Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 13,
+    "fields": {
+      "name": "Rozptýlení",
+      "description": "Rozptýlení je jakýkoli vnější nebo vnitřní podnět, který odvádí pozornost od hlavního úkolu nebo cíle. Může pocházet z různých zdrojů, jako jsou sociální média, hlučné prostředí, osobní problémy nebo dokonce myšlenky a obavy. Rozptýlení zpomaluje práci, zvyšuje chybovost a snižuje efektivitu, protože člověk musí neustále přepínat pozornost mezi různými činnostmi. Dlouhodobé rozptýlení může vést k prokrastinaci a frustraci. K minimalizaci rozptýlení je užitečné stanovit si časové bloky pro soustředěnou práci, omezit vnější vlivy a naučit se techniky, jak se rychle vrátit ke koncentraci.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:00:23.894Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 14,
+    "fields": {
+      "name": "Sociální tlak",
+      "description": "Sociální tlak je vliv okolí, který může formovat chování, rozhodování a názory jednotlivce podle očekávání nebo norem skupiny. Tento tlak může pocházet od rodiny, přátel, kolegů nebo širší společnosti. Lidé se mohou cítit nuceni přizpůsobit se těmto očekáváním, i když to není v souladu s jejich vlastními hodnotami nebo cíli. Sociální tlak může vést k rozhodnutím, která nejsou v souladu s osobními zájmy, a často způsobuje stres, úzkost nebo vnitřní konflikt. Je důležité být si vědom tohoto vlivu a naučit se stanovovat vlastní hranice, aby se předešlo negativním důsledkům.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:00:46.962Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 15,
+    "fields": {
+      "name": "Strach",
+      "description": "Strach je silná emocionální reakce na vnímání hrozby nebo nebezpečí, která může mít negativní vliv na schopnost jednat, rozhodovat se nebo se rozvíjet. Tento pocit může být spojen s obavami z neúspěchu, selhání, kritiky nebo změn, což vede k vyhýbání se výzvám a stagnaci. Strach může paralyzovat, zpomalit pokrok a způsobit, že se člověk uzavře před novými příležitostmi. Překonání strachu často vyžaduje vystavení se obavám v malých krocích, pozitivní myšlení a rozvoj sebedůvěry. Strach může být také motivací, pokud je správně řízen, což vede k větší ostražitosti a přípravě na výzvy.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:01:08.973Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 16,
+    "fields": {
+      "name": "Zdravotní problémy",
+      "description": "Zdravotní problémy jsou překážkou, která může výrazně ovlivnit schopnost vykonávat každodenní úkoly, dosahovat cílů nebo se soustředit na důležité činnosti. Ať už jde o chronické onemocnění, zranění, nebo psychické problémy, zdravotní obtíže mohou vést k únavě, bolesti, stresu a zhoršení celkové výkonnosti. Lidé s těmito problémy se mohou cítit omezeni a demotivováni, což může vést k odkládání úkolů nebo snižování ambicí. K překonání této překážky je důležité vyhledat lékařskou pomoc, přizpůsobit pracovní tempo, stanovit si realistické cíle a nezanedbávat duševní zdraví.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:01:30.258Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 17,
+    "fields": {
+      "name": "Ztráta zájmu",
+      "description": "Ztráta zájmu je stav, kdy člověk přestává cítit motivaci nebo nadšení pro činnost, kterou dříve vykonával. Tento jev může nastat, když úkoly nebo cíle přestávají být inspirující, smysluplné nebo když jsou příliš monotónní. Ztráta zájmu může být způsobena vyhořením, nedostatečným uznáním, nebo změnami v osobních hodnotách a prioritách. Když ztrácíme zájem, klesá naše produktivita, což může vést k odkládání úkolů a neplnění závazků. Pro obnovení zájmu je důležité najít nové výzvy, změnit přístup k činnosti nebo si stanovit nové, vzrušující cíle.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:02:04.723Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 18,
+    "fields": {
+      "name": "Únava",
+      "description": "Únava je fyzický nebo psychický stav vyčerpání, který může výrazně ovlivnit schopnost soustředit se, vykonávat úkoly a dosahovat cílů. Může být důsledkem dlouhodobé zátěže, stresu, špatného spánku nebo zdravotních problémů. Když je člověk unavený, klesá jeho produktivita, motivace a schopnost rozhodovat se efektivně. Tento stav může vést k prokrastinaci, ztrátě kreativity a nízké výkonnosti. K překonání únavy je klíčové dbát na dostatečný odpočinek, správnou výživu, pravidelný pohyb a hledání rovnováhy mezi pracovním a osobním životem.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:02:40.713Z"
+    }
+  },
+  {
+    "model": "viewer.obstacle",
+    "pk": 19,
+    "fields": {
+      "name": "Čas",
+      "description": "Čas je jednou z nejčastějších překážek, která může ovlivnit schopnost plnit úkoly a dosahovat cílů. Nedostatek času může vzniknout, pokud má člověk příliš mnoho povinností, špatně si rozplánuje svůj den nebo se nechá rozptýlit. Tento faktor může vést k prokrastinaci, stresu a frustraci, protože úkoly se hromadí a zdá se, že není dost času na jejich dokončení. Efektivní řízení času, stanovení priorit, delegování úkolů a organizování pracovního dne pomáhá minimalizovat tlak způsobený nedostatkem času. Důležité je také naučit se říkat „ne“ a soustředit se na to, co je skutečně důležité.",
+      "solution": "zatím žádné řešení",
+      "created_at": "2025-05-06T20:03:04.287Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 1,
+    "fields": {
+      "name": "Dovolená",
+      "description": "Dovolená je zásadní pro obnovu energie a zajištění duševního i fyzického zdraví. Bez pravidelných přestávek od pracovního stresu může docházet k vyhoření, únavě a poklesu produktivity. Dovolená umožňuje lidem načerpat nové síly, uvolnit se a odpočinout si od každodenního shonu. Kromě toho pomáhá zlepšit pracovní výkon a kreativitu po návratu, protože člověk se vrací s novým nadšením a jasnou myslí. Bez dovolené může být těžké udržet dlouhodobou motivaci a pozitivní přístup k práci.",
+      "created_at": "2025-05-06T20:06:58.850Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 2,
+    "fields": {
+      "name": "Elektronika",
+      "description": "Elektronika může sloužit jako motivující odměna nebo nástroj pro zlepšení produktivity, ale zároveň může být i zdrojem rozptýlení a prokrastinace. V mnoha případech je používání elektronických zařízení, jako jsou smartphony, počítače nebo tablety, příjemnou formou relaxace po náročné práci. Na druhou stranu, nadměrné používání elektroniky může narušit pracovní režim a soustředění, pokud se používá k neproduktivním aktivitám, jako je procházení sociálních médií nebo sledování videí. Zdravé vyvážení mezi používáním elektroniky pro odpočinek a produktivní činností je klíčové pro dosažení úspěchů. Elektronika může být také cenným nástrojem pro učení, organizaci času nebo zlepšení efektivity práce, pokud je správně využívána.",
+      "created_at": "2025-05-06T20:07:32.724Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 3,
+    "fields": {
+      "name": "Jídlo",
+      "description": "Jídlo může být silnou motivací a odměnou, která podporuje produktivitu a pohodu. Když je strava vyvážená a výživná, může zlepšit koncentraci, energii a celkovou výkonnost. Na druhou stranu, nevhodné stravovací návyky, jako je nadměrná konzumace nezdravých potravin, mohou vést k únavě, snížené motivaci a dokonce i zdravotním problémům. Jídlo také může sloužit jako prostředek k odměně po dosažení cílů nebo dokončení náročného úkolu, což může zlepšit duševní pohodu. Je důležité najít rovnováhu mezi požitkem z jídla a jeho vlivem na celkový životní styl a zdraví.",
+      "created_at": "2025-05-06T20:07:50.800Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 4,
+    "fields": {
+      "name": "Kvalitní péče o sebe (wellness apod.)",
+      "description": "Kvalitní péče o sebe, zahrnující wellness aktivity, jako jsou masáže, meditace, jóga, a pravidelný odpočinek, je klíčová pro udržení fyzického a duševního zdraví. Tato péče pomáhá snižovat stres, zlepšuje spánek, zvyšuje energii a zlepšuje celkovou náladu. Investice do sebe, jako je čas věnovaný relaxaci nebo zdravým návykům, může zlepšit dlouhodobou produktivitu a motivaci. Wellness aktivity také podporují rovnováhu mezi pracovním a osobním životem, což je nezbytné pro prevenci vyhoření. Když se věnujeme vlastnímu tělu a mysli, jsme schopni lépe zvládat výzvy a udržet si pozitivní přístup k životu.",
+      "created_at": "2025-05-06T20:08:23.139Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 5,
+    "fields": {
+      "name": "Lepší spánek",
+      "description": "Lepší spánek je nezbytný pro regeneraci těla a mysli, a hraje klíčovou roli v produktivitě a celkovém zdraví. Kvalitní spánek zlepšuje koncentraci, kreativitu a schopnost rozhodování, což přispívá k dosažení cílů. Nedostatek spánku naopak může vést k únavě, stresu a snížené výkonnosti, což negativně ovlivňuje i duševní pohodu. Zlepšení spánkových návyků, jako je pravidelný spánkový režim, vyhýbání se elektronice před spaním a vytvoření klidného prostředí, může výrazně zlepšit kvalitu spánku. Dobrý spánek tedy nejen podporuje zdraví, ale také posiluje motivaci a energii pro každodenní výzvy.",
+      "created_at": "2025-05-06T20:08:50.095Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 6,
+    "fields": {
+      "name": "Materiální odměna",
+      "description": "Materiální odměna, jako jsou bonusy, dárky nebo jiné hmotné benefity, může být silným motivačním nástrojem, který podporuje pozitivní chování a produktivitu. Tento typ odměny je často spojen s dosažením konkrétních cílů, což dává jednotlivcům jasný a konkrétní důvod k výkonu. Materiální odměny také mohou posílit pocit uznání a vděčnosti, což zvyšuje loajalitu a spokojenost. Na druhou stranu, pokud jsou materiální odměny vnímány jako automatické nebo nezohledňující individuální přínos, jejich účinnost může klesat. Správně nastavená materiální odměna by měla být vyvážena s uznáním a podporou osobního růstu, aby byla skutečně motivující.",
+      "created_at": "2025-05-06T20:09:19.505Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 7,
+    "fields": {
+      "name": "Nová dovednost",
+      "description": "Učení se nové dovednosti může být silnou motivací a odměnou, protože poskytuje osobní růst, zvyšuje sebevědomí a otevírá nové možnosti. Tento proces nejen obohacuje život jednotlivce, ale také zvyšuje jeho hodnotu v profesním a osobním životě. Nové dovednosti mohou být klíčem k větší efektivitě, kreativnímu myšlení a inovacím, což zlepšuje výkonnost a spokojenost. Učení nové dovednosti také často přináší pocit uspokojení a radosti z dosahování pokroku. Tento typ odměny může pomoci udržet motivaci na vysoké úrovni, protože se člověk cítí, že se stále vyvíjí a posouvá vpřed.",
+      "created_at": "2025-05-06T20:09:43.494Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 8,
+    "fields": {
+      "name": "Oblečení",
+      "description": "Oblečení může být formou materiální odměny, která zlepšuje sebevědomí a náladu. Nový kus oblečení, který je stylový nebo pohodlný, může člověku dodat pocit sebeúcty a připravenosti na nové výzvy. Tento typ odměny je obzvlášť silný, protože má vizuální a okamžitý dopad na psychiku, čímž zvyšuje motivaci. Oblečení také může sloužit jako symbol úspěchu, například po dosažení důležitého cíle nebo zlepšení výkonu. Kromě toho, že dává pocit odměny, může mít i praktickou hodnotu, například v podobě zlepšení komfortu nebo ochrany před nepříznivými podmínkami.",
+      "created_at": "2025-05-06T20:10:12.655Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 9,
+    "fields": {
+      "name": "Zážitek",
+      "description": "Zážitek jako odměna je silným motivačním nástrojem, který poskytuje nezapomenutelné vzpomínky a může posílit osobní rozvoj. Ať už jde o cestování, kulturní akci, dobrodružství nebo jiný zážitek, tento typ odměny přináší emocionální uspokojení, které je trvalejší než materiální věci. Zážitek často obohacuje život novými perspektivami a propojením s ostatními lidmi, což může posílit pocit štěstí a naplnění. Na rozdíl od hmotných odměn zážitky přinášejí hodnotu, kterou nelze vyjádřit v penězích a které mají dlouhodobý dopad na duševní pohodu. Tento typ odměny může být skvělý způsob, jak odměnit úspěchy, protože zanechává trvalý dojem a motivuje k dalším cílům.",
+      "created_at": "2025-05-06T20:10:41.359Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 10,
+    "fields": {
+      "name": "Oslava osobního úspěchu",
+      "description": "Oslava osobního úspěchu je důležitým způsobem, jak uznat vlastní dosažené cíle a posílit sebevědomí. Tento rituál odměňuje tvrdou práci a odhodlání, což pomáhá udržet motivaci na vysoké úrovni pro budoucí výzvy. Oslava může mít různé podoby – od soukromé chvíle v klidu po velkou oslavu s přáteli a rodinou, což pomáhá upevnit pocit dosaženého pokroku. Tato odměna je nejen příjemná, ale i důležitá pro psychickou pohodu, protože umožňuje člověku uvědomit si svou hodnotu a úspěchy. Oslavy osobního úspěchu mohou vést k větší spokojenosti a motivaci do dalšího růstu a plnění cílů.",
+      "created_at": "2025-05-06T20:10:58.362Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 11,
+    "fields": {
+      "name": "Osobní čas",
+      "description": "Osobní čas je cennou odměnou, která umožňuje jednotlivci věnovat se aktivitám, které ho naplňují a poskytují mu radost, odpočinek a regeneraci. Tento čas může zahrnovat jakýkoli druh činnosti, která pomáhá uvolnit mysl, zlepšit duševní zdraví a znovu získat energii – například čtení, kreativní činnosti, procházky nebo prostý odpočinek. Umožňuje to také čas na reflexi a obnovu, což zvyšuje dlouhodobou motivaci a produktivitu. Osobní čas jako odměna pomáhá zlepšit rovnováhu mezi pracovním a osobním životem, což je klíčové pro celkovou pohodu a prevenci vyhoření. Tento typ odměny je zároveň investicí do sebe, protože pozitivně ovlivňuje osobní růst a spokojenost.",
+      "created_at": "2025-05-06T20:11:29.296Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 12,
+    "fields": {
+      "name": "Pochvala",
+      "description": "Pochvala je silná a efektivní forma odměny, která podporuje pozitivní chování a motivaci. Když je člověk uznán za svůj výkon, cítí se oceněný a motivovaný k dalšímu úsilí. Pochvala zvyšuje sebevědomí, vytváří pocit uznání a potvrzuje, že úsilí a tvrdá práce byly správně směřovány. Tato odměna může mít formu slovního uznání, veřejného ocenění nebo osobního děkování, což posiluje vztahy a týmovou spolupráci. Pravidelná a upřímná pochvala také přispívá k pozitivní pracovní kultuře a zvyšuje angažovanost jednotlivců, kteří se cítí respektováni a ceněni.",
+      "created_at": "2025-05-06T20:11:47.459Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 13,
+    "fields": {
+      "name": "Pohoda",
+      "description": "Pohoda jako odměna je stav vnitřního klidu a spokojenosti, který je klíčový pro udržení rovnováhy mezi prací a osobním životem. Tento pocit může pocházet z relaxace, nezatíženého času a zajištění pohodlného prostředí pro odpočinek. Pohoda zlepšuje psychické i fyzické zdraví, zvyšuje produktivitu a pomáhá lidem udržet si pozitivní přístup k výzvám, které před nimi stojí. Mít čas na sebe, nebýt pod tlakem a cítit se v harmonii se svým okolím je důležitou součástí prevence vyhoření a stresu. Pohoda tedy není pouze o relaxaci, ale i o zajištění kvalitní rovnováhy mezi nároky života a péčí o sebe.",
+      "created_at": "2025-05-06T20:12:06.239Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 14,
+    "fields": {
+      "name": "Pomoc druhým",
+      "description": "Pomoc druhým je odměnou, která přináší pocit naplnění a osobní spokojenosti. Když člověk pomáhá ostatním, cítí se užitečný a jeho činy mohou mít pozitivní dopad na komunitu nebo jednotlivce. Tento typ odměny nejen podporuje pozitivní sociální vztahy, ale také posiluje pocit sounáležitosti a lidskosti. Pomoc druhým může vést k hlubšímu vnitřnímu růstu, protože zprostředkovává pocit, že máme vliv na svět kolem sebe. Navíc činností ve prospěch ostatních často dochází k vyvážení vlastních problémů a stresu, což přispívá k větší duševní pohodě a vděčnosti.",
+      "created_at": "2025-05-06T20:12:28.665Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 15,
+    "fields": {
+      "name": "Setkání s přáteli",
+      "description": "Setkání s přáteli je skvělou formou odměny, která podporuje duševní pohodu a posiluje mezilidské vztahy. Společný čas s přáteli umožňuje odpočinout si od pracovního stresu, zasmát se, sdílet zážitky a podporovat se navzájem. Tato socializace přináší pocit sounáležitosti a štěstí, což pozitivně ovlivňuje celkovou náladu a motivaci. Přátelská setkání mohou fungovat jako forma mentálního resetu, který člověku umožňuje znovu získat energii pro výzvy, které ho čekají. Sdílení kvalitního času s těmi, kteří nám jsou blízcí, nám připomíná, co je v životě skutečně důležité.",
+      "created_at": "2025-05-06T20:12:55.576Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 16,
+    "fields": {
+      "name": "Sociální interakce",
+      "description": "Sociální interakce jako odměna poskytuje příležitost pro komunikaci, sdílení zážitků a posilování vztahů s ostatními. Tyto interakce mohou zahrnovat jak formální, tak neformální setkání, například pracovní porady, přátelské rozhovory nebo rodinné akce. Kvalitní sociální kontakt přispívá k pocitu sounáležitosti, což pozitivně ovlivňuje duševní zdraví a celkovou pohodu. Tato interakce také pomáhá zlepšit komunikaci, rozšiřuje obzory a přináší podporu v těžkých chvílích. Vytváření silné sociální sítě a pravidelný kontakt s ostatními zajišťují, že se člověk necítí osamocený a je schopen čerpat energii z okolí.",
+      "created_at": "2025-05-06T20:13:20.001Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 17,
+    "fields": {
+      "name": "Společná aktivita",
+      "description": "Společná aktivita je odměnou, která spojuje lidi a vytváří příležitosti pro sdílení zážitků a posilování vztahů. Může se jednat o sportovní aktivity, kreativní projekty, týmové hry nebo jiné formy společného trávení času, které přinášejí radost a smysl pro týmovou soudržnost. Společné aktivity nejenže zlepšují fyzickou kondici, ale také podporují sociální interakci a komunikaci, což zlepšuje duševní pohodu. Tyto činnosti často poskytují pocit uspokojení a naplnění, protože se při nich dosahuje společných cílů a vytvářejí se vzpomínky, které posilují vztahy. Navíc společná aktivita pomáhá lidem zbavit se stresu a zlepšit náladu, což může být silnou motivací k dalším výzvám.",
+      "created_at": "2025-05-06T20:14:09.143Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 18,
+    "fields": {
+      "name": "Uznání od ostatních",
+      "description": "Uznání od ostatních je silnou formou odměny, která přináší pocit hodnoty a uznání za vynaložené úsilí. Když je člověk chválen nebo oceněn za svou práci, výkon nebo úsilí, posiluje to jeho sebevědomí a motivaci pokračovat ve svých činnostech. Uznání může mít různé formy – od veřejného pochvaly až po osobní poděkování nebo ocenění od kolegů, přátel či rodiny. Tento typ odměny nejen že zvyšuje pozitivní emoce, ale také posiluje mezilidské vztahy, vytváří atmosféru vzájemného respektu a podporuje produktivitu. Uznání od ostatních je také klíčem k udržení dlouhodobé motivace, protože pomáhá lidem cítit, že jejich snaha má skutečný dopad.",
+      "created_at": "2025-05-06T20:14:33.232Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 19,
+    "fields": {
+      "name": "Vděčnost",
+      "description": "Vděčnost je silná forma odměny, která podporuje pozitivní přístup k životu a zvyšuje psychickou pohodu. Když cítíme vděčnost, jsme schopni ocenit to, co máme, což vede k větší spokojenosti a klidu. Vděčnost může vyplývat z uznání a ocenění od ostatních, ale i z vnitřního pocitu naplnění a uznání vlastní práce či úsilí. Tato odměna pomáhá posilovat vztahy, protože projevování vděčnosti ukazuje, že si vážíme lidí kolem nás a jejich přínosu do našeho života. Vděčnost také zlepšuje celkové duševní zdraví, protože zvyšuje pozitivní emoce a pomáhá nám zaměřit se na to, co v životě skutečně máme, místo toho, co nám chybí.",
+      "created_at": "2025-05-06T20:15:31.219Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 20,
+    "fields": {
+      "name": "Veřejné uznání",
+      "description": "Veřejné uznání je silná forma odměny, která nejen potvrzuje individuální úspěchy, ale také motivuje ostatní k dosažení podobných cílů. Tato forma uznání může mít podobu ocenění na veřejných událostech, firemních ceremoniích nebo v rámci širší komunity. Veřejné uznání zvyšuje pocit hrdosti a spokojenosti, protože jde o veřejné ocenění práce a úsilí dané osoby, což může být velmi povzbudivé. Tato odměna zároveň posiluje pocit uznání a respektu od kolegů, přátel či komunity, což zlepšuje mezilidské vztahy a přispívá k pozitivní atmosféře. Veřejné uznání může také sloužit jako příklad pro ostatní a podnítit je k vlastnímu zlepšení a dosažení cílů.",
+      "created_at": "2025-05-06T20:15:49.259Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 21,
+    "fields": {
+      "name": "Výz",
+      "description": "Výzva jako odměna může být velmi motivující, protože nabízí příležitost k růstu, překonávání vlastních hranic a dosažení nových cílů. Když je člověk postaven před výzvu, může se cítit motivován k tomu, aby vynaložil veškeré své schopnosti a energii, což vede k osobnímu rozvoji. Výzva může být vnímána jako příležitost k prokázání schopností, což přináší pocit uspokojení po jejím překonání. Tato odměna také pomáhá udržet vysoký stupeň angažovanosti a koncentrace, protože cíl, který si člověk stanoví, představuje konkrétní a smysluplnou motivaci. Výzvy mohou být různorodé – od profesionálních cílů až po osobní zlepšení – ale vždy přinášejí pocit naplnění, jakmile jsou splněny.",
+      "created_at": "2025-05-06T20:16:39.273Z"
+    }
+  },
+  {
+    "model": "viewer.reward",
+    "pk": 22,
+    "fields": {
+      "name": "Zdraví",
+      "description": "Zdraví je jednou z nejdůležitějších odměn, kterou si člověk může dopřát, protože je základem pro všechny ostatní aspekty života. Udržování dobrého fyzického a duševního zdraví přináší dlouhodobý pocit pohody, energie a vitality, což pozitivně ovlivňuje všechny oblasti života, včetně pracovní produktivity, vztahů a osobního rozvoje. Zdraví není jen o absenci nemocí, ale i o prevenci, péči o tělo a mysl prostřednictvím správné výživy, pohybu, spánku a relaxace. Když máme dobré zdraví, cítíme se silnější a schopnější čelit životním výzvám, což je samo o sobě velkou motivací. Kromě toho, zdraví nám umožňuje plně si užívat životních radostí, jako jsou cestování, rodinné chvíle nebo koníčky.",
+      "created_at": "2025-05-06T20:17:00.316Z"
+    }
+  },
+  {
+    "model": "viewer.habit",
+    "pk": 1,
+    "fields": {
+      "name": "Toulky po okolí",
+      "goal": "Cílem toulky po okolí je především zlepšení fyzické a psychické pohody.",
+      "frequency": "once_a_week",
+      "target_repetitions": 21,
+      "start_date": "2025-07-01",
+      "status": "not_started",
+      "created_at": "2025-05-06T20:25:04.263Z",
+      "updated_at": "2025-05-06T20:25:04.263Z",
+      "description": "Toulky po okolí jsou příjemnou a osvěžující aktivitou, která nám umožňuje objevovat nová místa, užívat si přírody a zároveň zlepšovat fyzickou i psychickou pohodu. Tento návyk spočívá v pravidelných procházkách v okolí našeho bydliště, ať už jde o přírodní stezky, městské parky nebo historická zákoutí. Toulky po okolí nejsou jen o procházkách, ale o záměrném zpomalení tempa života, o chvílích, kdy můžeme zastavit a vnímat krásu světa kolem nás.\r\n\r\nJedním z hlavních přínosů toulání po okolí je zlepšení fyzické kondice. Chůze je nenáročná, ale efektivní forma cvičení, která posiluje svaly, zlepšuje kardiovaskulární zdraví a podporuje celkovou pohodu. Toulky venku navíc pomáhají zlepšovat rovnováhu a koordinaci, zvláště pokud se pohybujeme v přírodním terénu.\r\n\r\nDalším přínosem tohoto návyku je zklidnění mysli a snížení stresu. Když se vydáme na procházku, máme čas na zamyšlení, reflektování nebo jednoduše na to, abychom na chvíli vypnuli od každodenního shonu. Pobyt na čerstvém vzduchu a v přírodě je známý tím, že snižuje úzkost a zlepšuje náladu. Toulky také přispívají k lepšímu duševnímu zdraví, podporují kreativitu a schopnost řešit problémy.\r\n\r\nToulky po okolí mají i pozitivní vliv na naši schopnost spojit se s okolním světem. Často si všimneme krásy, kterou bychom jinak přehlédli, a zlepšujeme tak vztah k přírodě i našemu městu. Tento návyk je skvělou příležitostí pro osamocený odpočinek nebo pro sdílení času s přáteli a rodinou.\r\n\r\nZačít s toulkami je snadné – stačí si vyhradit čas na procházku, vzít pohodlné boty a vyrazit ven. Tento návyk přináší okamžitou odměnu v podobě relaxace, pohody a energie, která nám pomáhá čelit každodenním výzvám.",
+      "category": [
+        1,
+        3
+      ],
+      "obstacle": [
+        19
+      ],
+      "reward": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "viewer.habit",
+    "pk": 2,
+    "fields": {
+      "name": "Spoření",
+      "goal": "Vytvořit finanční rezervu pro nečekané výdaje a budoucí jistotu.",
+      "frequency": "everyday",
+      "target_repetitions": 66,
+      "start_date": "2025-07-01",
+      "status": "not_started",
+      "created_at": "2025-05-06T20:27:32.472Z",
+      "updated_at": "2025-05-06T20:27:32.472Z",
+      "description": "Spoření je návyk, který pomáhá budovat finanční stabilitu, jistotu a odolnost vůči nečekaným situacím. Jde o vědomé odkládání části příjmů stranou – ať už na konkrétní účel, nebo jako finanční rezervu. Tento návyk je základem zdravého hospodaření s penězi a představuje důležitý krok k větší nezávislosti, klidu a dlouhodobému finančnímu zdraví.\r\n\r\nZavedení spořicího návyku přináší celou řadu výhod. V první řadě jde o pocit bezpečí – mít rezervu znamená, že jsme připraveni na nepředvídané výdaje, jako jsou opravy, lékařské výlohy nebo výpadky příjmu. Spoření také umožňuje plánovat budoucnost – například si šetřit na dovolenou, nový byt, vzdělání nebo jiný větší cíl, aniž bychom museli sahat po půjčkách. Pravidelné spoření nás navíc učí sebekázni a finanční odpovědnosti, což má pozitivní vliv na celkové hospodaření a vztah k penězům.\r\n\r\nSpořit lze různými způsoby. Někomu vyhovuje klasické odkládání určité částky na spořicí účet, jiný využívá obálkovou metodu, mobilní aplikace nebo automatizované převody. Důležité je, aby byl systém jednoduchý a udržitelný. I malá částka, odkládaná pravidelně, může v čase narůst na významnou rezervu. Klíčem je důslednost a dlouhodobost – spoření není jednorázová akce, ale proces.\r\n\r\nDobrým zvykem je stanovit si konkrétní cíl – například „měsíc co měsíc si odložím 10 % příjmu“ nebo „do konce roku naspořím 20 000 Kč“. Tento cíl pomáhá udržet motivaci a vidět pokrok. Zároveň je důležité být flexibilní – pokud se změní životní situace, může se změnit i výše spořené částky, aniž by to znamenalo selhání.\r\n\r\nSpoření není o odříkání, ale o moudrém hospodaření. Místo impulzivních výdajů si člověk vytváří rezervu, která dává větší svobodu rozhodování. V konečném důsledku tento návyk přináší pocit jistoty, klidu a kontroly nad vlastními financemi.",
+      "category": [
+        6
+      ],
+      "obstacle": [
+        2,
+        4,
+        17
+      ],
+      "reward": []
+    }
+  }
+]

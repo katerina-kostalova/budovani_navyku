@@ -1,0 +1,114 @@
+
+{% block title %}
+    Počasí
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+            margin: 20px 0;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comparison-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .city-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .forecast-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .forecast {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(20% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="city1" placeholder="První město">
+        <input type="text" name="city2" placeholder="Druhé město">
+        <button type="submit">Porovnej počasí</button>
+    </form>
+
+    <div class="comparison-container">
+        {% if weather_data1 %}
+            <div class="city-container">
+                <h2>Počasí pro {{ weather_data1.city }}</h2>
+                <h3>{{ weather_data1.temperature }}</h3>
+                <p>{{ weather_data1.description }}</p>
+
+                {% if daily_forecasts1 %}
+                    <div class="forecast-container">
+                        {% for forecast in daily_forecasts1 %}
+                            <div class="forecast">
+                                <h3>{{ forecast.day }}</h3>
+                                <p>{{ forecast.min_temp }} °C – {{ forecast.max_temp }} °C</p>
+                                <p>{{ forecast.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if weather_data2 %}
+            <div class="city-container">
+                <h2>Počasí pro {{ weather_data2.city }}</h2>
+                <h3>{{ weather_data2.temperature }}</h3>
+                <p>{{ weather_data2.description }}</p>
+
+                {% if daily_forecasts2 %}
+                    <div class="forecast-container">
+                        {% for forecast in daily_forecasts2 %}
+                            <div class="forecast">
+                                <h3>{{ forecast.day }}</h3>
+                                <p>{{ forecast.min_temp }} °C – {{ forecast.max_temp }} °C</p>
+                                <p>{{ forecast.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
