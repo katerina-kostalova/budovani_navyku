@@ -80,18 +80,18 @@
 
     <p>
         {% if habit in profile.acquired_habit.all %}
-            <a href="{% url 'acquired_habit' habit.id %}"> ✅ done Odebrat z osvojených návyků</a>
+            <a href="{% url 'acquired_habit' habit.id %}"> ✅ =) ODEBRAT z osvojených návyků</a>
         {% else %}
-            <a href="{% url 'acquired_habit' habit.id %}"> 📌 Přidat k osvojeným návykům</a>
+            <a href="{% url 'acquired_habit' habit.id %}"> 📌 =) PŘIDAT k osvojeným návykům</a>
         {% endif %}
     </p>
 
 
     <p>
         {% if habit in profile.targeted_habit.all %}
-            <a href="{% url 'targeted_habit' habit.id %}"> 🎯 Odebrat z cílových návyků</a>
+            <a href="{% url 'targeted_habit' habit.id %}"> 🎯 =) ODEBRAT z cílových návyků</a>
         {% else %}
-            <a href="{% url 'targeted_habit' habit.id %}"> 🎯 Přidat k cílovým návykům</a>
+            <a href="{% url 'targeted_habit' habit.id %}"> 🆕 =) PŘIDAT k cílovým návykům</a>
         {% endif %}
     </p>
 

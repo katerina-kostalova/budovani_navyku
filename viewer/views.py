@@ -7,7 +7,7 @@ from django.db.models import Avg
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect
-
+from django.http import JsonResponse
 from accounts.models import Profile
 from budovani_navyku.settings import DEBUG
 from viewer.forms import HabitModelForm, ObstacleModelForm, RewardModelForm, ReviewModelForm, ImageModelForm
@@ -339,6 +339,86 @@ def name_day(request):
     name = result_json[0]['name']
     context = {'name': name}
     return render(request, 'nameday.html', context)
+
+
+
+
+def weather(request):
+    API_KEY = "1638db17866b5132025c3086013f785b"
+    current_weather_url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
+    forecast_url = "https://api.openweathermap.org/data/2.5/forecast?q={}&appid={}"
+
+    if request.method == 'POST':
+        city1 = request.POST['city1']
+        city2 = request.POST.get('city2', None)
+
+        weather_data1, daily_forecast1 = fetch_weather_and_forecast(city1, API_KEY, current_weather_url, forecast_url)
+
+        if city2:
+            weather_data2, daily_forecast2 = fetch_weather_and_forecast(city2, API_KEY, current_weather_url, forecast_url)
+        else:
+            weather_data2, daily_forecast2 = None, None
+
+        context = {"weather_data1": weather_data1,
+                   "daily_forecasts1": daily_forecast1,
+                   "weather_data2": weather_data2,
+                   "daily_forecasts2": daily_forecast2
+
+        }
+        return render(request, "weather.html", context)
+    else:
+        return render(request, "weather.html")
+
+
+
+def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url):
+    import datetime
+
+    # Volání aktuálního počasí
+    response = requests.get(current_weather_url.format(city, api_key)).json()
+
+    # Bezpečné získání lat/lon, tady se ale teď nevyužívá forecast z One Call API, takže není potřeba
+    if response.get('cod') != 200:
+        return {"city": city, "error": response.get('message', 'Chyba API')}, []
+
+    weather_data = {
+        "city": city,
+        "temperature": round(response['main']['temp'] - 273.15, 2),
+        "description": response['weather'][0]['description'],
+        "icon": response['weather'][0]['icon'],
+    }
+
+    # Volání forecastu (5 dní po 3 hodinách)
+    forecast_response = requests.get(forecast_url.format(city, api_key)).json()
+
+    if forecast_response.get('cod') != "200":
+        return weather_data, []
+
+    # Forecast poskytuje data po 3 hodinách, z toho vybíráme cca jedno denní (např. po 12:00)
+    daily_forecasts = []
+    processed_dates = set()
+
+    for item in forecast_response.get('list', []):
+        dt_txt = item['dt_txt']  # např. '2025-05-17 12:00:00'
+        date = dt_txt.split(' ')[0]
+
+        # Přidáme pouze jeden záznam na den, ideálně ten s 12:00
+        time = dt_txt.split(' ')[1]
+        if date not in processed_dates and time == "12:00:00":
+            daily_forecasts.append({
+                "day": datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%A'),
+                "min_temp": round(item['main']['temp_min'] - 273.15, 2),
+                "max_temp": round(item['main']['temp_max'] - 273.15, 2),
+                "description": item['weather'][0]['description'],
+                "icon": item['weather'][0]['icon']
+            })
+            processed_dates.add(date)
+            if len(daily_forecasts) == 5:
+                break
+
+    return weather_data, daily_forecasts
+
+
 
 
 

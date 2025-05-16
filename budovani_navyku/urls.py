@@ -5,6 +5,7 @@ from accounts.views import SubmittableLoginView, user_logout, SignUpView
 from django.urls import path, include
 
 from budovani_navyku import settings
+from viewer import views
 from viewer.views import *
 
 urlpatterns = [
@@ -49,5 +50,7 @@ urlpatterns = [
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
     #API
     path('nameday/', name_day, name='nameday'),
+    #path('weather/', weather, name='weather')
+    path('weather/', views.weather, name='weather'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
