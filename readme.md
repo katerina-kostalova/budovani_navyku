@@ -40,5 +40,73 @@
 3. překážky
 4. odměny
 
+# Obrázek databáze
+![ER diagram](./files/ER_v1.png)
+![ER diagram](./files/ER_v2.png)
+![ER diagram](./files/ER_v3.png)
 
+
+
+# Databáze
+- [x] Category
+  - [x] name
+
+
+- [x] Obstacle
+  - [x] name (string)
+  - [x] description (string)
+  - [x] solution (string)
+  - [x] created_at (datetime)
+
+
+- [x] Reward
+  - [x] name (string)
+  - [x] description (string)
+  - [x] created_at (datetime)
+
+
+- [x] Habit 
+  - [x] categories (string)
+  - [x] name (string)
+  - [x] obstacles (string)
+  - [x] rewards (string)
+  - [x] goal (string)
+  - [x] frequency (string)
+  - [x] target_repetitions (integer)
+  - [x] start_date (datetime)
+  - [x] status (string)
+  - [x] created_at (datetime)
+  - [x] updated_at (datetime)
+  - [x] description (string)
+  - [x] rating (float)
+  - [x] images (image)
+  - [x] in_acquired_habit (n:m -> Profile)
+  - [x] in_targeted_habit (n:m -> Profile)
+
+
+- [x] Review
+  - [x] habit (string)
+  - [x] reviewer (string)
+  - [x] rating (integer)
+  - [x] comment (string)
+  - [x] created (datetime)
+  - [x] updated (datetime)
+  
+
+- [x] Image
+  - [x] image
+  - [x] habit (string)
+  - [x] description (string)
+
+
+- [x] User (django_default)
+
+
+- [x] Profile
+  - [x] user (string)
+  - [x] date_of_birth (datetime)
+  - [x] biography (string)
+  - [x] phone (integer)
+
+  
 

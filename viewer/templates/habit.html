@@ -1,0 +1,143 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    {{ habit.name }}
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="display-4">{{ habit.name }}</h1>
+    <p class="lead">
+            Kategorie:{% comment %}jsou to kolekce{% endcomment %}
+            {% for category in habit.categories.all %}
+                {{ category }}
+            {% empty %}
+                Není dafinovaná žádná kategorie pro tento návyk.
+            {% endfor %}
+    </p>
+
+    <div class="habit-images">
+        {% for image in habit.images.all %}
+            <span class="habit-image">
+                <img src="{{ image.image.url }}"
+                     alt="{{ image.description }}"
+                     width="300px">
+            </span>
+        {% endfor %}
+    </div>
+
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong>Překážka:</strong>
+                {% for obstacle in habit.obstacles.all %}
+                    <span class="badge badge-secondary">{{ obstacle }}</span>
+                {% empty %}
+                    Není dafinovaná žádná překážka pro tento návyk.
+                {% endfor %}
+            </p>
+            <p><strong>Odměna:</strong>
+                {% for reward in habit.rewards.all %}
+                    {{ reward }}
+                {% empty %}
+                    Není dafinovaná žádná odměna pro tento návyk.
+                {% endfor %}
+            </p>
+            <p><strong>Jak často:</strong>{{ habit.frequency }}</p>
+            <p><strong>Cíl:</strong>{{ habit.goal }}</p>
+        </div>
+        <div class="col-md-6">
+            <p><strong>Cíl opakování:</strong>{{ habit.target_repetitions }}</p>
+            <p><strong>Začímán dne:</strong>{{ habit.start_date }}</p>
+            <p><strong>Status:</strong>{{ habit.status }}</p>
+            <p><strong>Průměrné hodnocení</strong>
+                {% if rating_avg %}
+                    {{ rating_avg }} ({{ rating_count }})</p>
+                {% else %}
+                    Zatím nehodnoceno
+                {% endif %}
+        </div>
+        <p><strong>Popis:</strong></p>
+        <p class="text-justify">{{ habit.description }}</p>
+
+
+
+
+
+
+
+
+
+
+        <br>
+        <p class="mt-3"><small class="text-muted>">Přidáno dne: {{ habit.created_at|date:"j. n. Y G:i"}}</small></p>
+        <p><small class="text-muted>">Poslední úprava dne: {{ habit.updated_at|date:"j. n. Y G:i" }}</small></p>
+    </div>
+
+    <p>
+        {% if habit in profile.acquired_habit.all %}
+            <a href="{% url 'acquired_habit' habit.id %}"> ✅ =) ODEBRAT z osvojených návyků</a>
+        {% else %}
+            <a href="{% url 'acquired_habit' habit.id %}"> 📌 =) PŘIDAT k osvojeným návykům</a>
+        {% endif %}
+    </p>
+
+
+    <p>
+        {% if habit in profile.targeted_habit.all %}
+            <a href="{% url 'targeted_habit' habit.id %}"> 🎯 =) ODEBRAT z cílových návyků</a>
+        {% else %}
+            <a href="{% url 'targeted_habit' habit.id %}"> 🆕 =) PŘIDAT k cílovým návykům</a>
+        {% endif %}
+    </p>
+
+
+    <hr>
+    {% if perms.viewer.change_habit %}
+        <a href="{% url 'habit_update' habit.id %}" class="btn btn-primary">Aktualizovat</a>
+    {% endif %}
+    {% if perms.viewer.delete_habit %}
+        <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger">Smazat</a>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>{{ review_form.as_table }}</table>
+                <button type="submit">Odeslat</button>
+            </form>
+    {% endif %}
+
+    <hr>
+    {% for review in habit.reviews.all %}
+        <div class="bg-light rounded mt-2 p-2 position-relative">
+            <span>Uživatel: {{ review.reviewer }}</span>
+            <span class="font-italic">{{ review.created|date:'d.m.Y H:i'  }}</span>
+            {% if review.created != review.updated %}
+                <span class="font-italic">(upraveno {{ review.updated|date:'d.m.Y H:i' }}</span>
+            {% endif %}
+            {% if request.user == review.reviewer.user %}
+                <a href="{% url 'review_delete' review.id %}">Smazat</a>
+            {% endif %}
+
+
+
+
+
+            <div>
+                Hodnocení: {{ review.rating }}
+            </div>
+            <div>
+                Komentář: {{ review.comment }}
+            </div>
+        </div>
+    {% empty %}
+        Zatím není evidováno žádné hodnocení.
+    {% endfor %}
+{% endblock %}
+
+

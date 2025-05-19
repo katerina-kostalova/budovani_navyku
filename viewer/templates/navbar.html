@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> {% comment %} navigační část navigačné MENU {% endcomment %}{% comment %} definované třídy z bootstrapu navigační pole, dark téma {% endcomment %}
+    <div class="container fixed">{% comment %} 1definovaný konteiner {% endcomment %}
+        <a class="navbar-brand" href="/">Budování návyků</a>{% comment %} odkaz, na kt kdž kliknu se dostanu do home {% endcomment %}
+        <button{% comment %} zabalovací tlačítko {% endcomment %}
+                class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        >
+            <span class="navbar-toggler-icon"></span>{% comment %} ikona {% endcomment %}
+        </button>{% comment %} zabalovací tlačítko {% endcomment %}
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>{% comment %} home odkaz {% endcomment %}
+                <a class="nav-item nav-link active" href="{% url 'habits' %}">Návyky</a>
+                <a class="nav-item nav-link active" href="{% url 'categories' %}">Kategorie</a>
+                <a class="nav-item nav-link active" href="{% url 'obstacles' %}">Překážky</a>
+                <a class="nav-item nav-link active" href="{% url 'rewards' %}">Odměny</a>
+                <a class="nav-item nav-link active" href="{% url 'images' %}">Obrázky</a>
+
+            </div>
+
+            <div class="navbar-nav">
+                <div class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">API</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'nameday' %}">Svátek</a>
+                        <a class="dropdown-item" href="{% url 'weather' %}">Počasí</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="navbar-nav ml-auto">
+                <div class="search-div">
+                    <form method="post" action="/search/">
+                        {% csrf_token %}
+                        <input type="text" id="search" name="search" placeholder="🔎Hledej...">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="navbar-nav ml-auto">
+                <div class="nav-item dropdown">
+                    {% if user.is_authenticated %}
+                        <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">{{ user.username }}</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'logout' %}">Odhlásit</a>
+                            <a class="dropdown-item" href="{% url 'password_change' %}">Změna hesla</a>
+                        </div>
+                    {% else %}
+
+                        <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">Nepřihášený uživatel</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'login' %}">Přilásit</a>
+                            <a class="dropdown-item" href="{% url 'signup' %}">Registrace</a>
+                            <a class="dropdown-item" href="{% url 'password_reset' %}">Reset hesla</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>{% comment %} 1definovaný konteiner {% endcomment %}
+</nav>{% comment %} navigační část  navigačné MENU  {% endcomment %}

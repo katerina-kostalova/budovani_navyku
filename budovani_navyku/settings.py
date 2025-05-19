@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_dump_load_utf8',
+
+    'accounts',
     'viewer',
 ]
 
@@ -59,7 +62,7 @@ ROOT_URLCONF = 'budovani_navyku.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +124,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#Images
+MEDIA_ROOT = BASE_DIR
+MEDIA_URL = 'images/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home' #po přihlašení chci jit na domovskou
+LOGOUT_REDIRECT_URL = 'home'
